@@ -1,0 +1,92 @@
+Movasim SendSMS Received ECHO USIM APPLET v01.01
+-------------------------------------------
+
+--------------------------
+OBJETIVE
+-------------------------------------
+Receive a SMSPP
+Send a SMS with the data received in SMSPP
+
+-------------------------------------
+EEPROM = 1.876 bytes
+RAM = 0 bytes
+
+
+FOR LOP FILES:
+--------------
+REM LOADCOMMANDP3VALUE = 74
+REM ACCESSDOMAIN = 00
+REM TOOLKITAPPLETPRIORITYLEVEL = FF
+REM MAXNUMBEROFTIMER = 00
+REM MAXMENUENTRYTEXTLGT = 10
+
+FOR ALL:
+--------
+ACCESS DOMAIN: 00 23
+PIORITY LEVEL: FF
+MAX TEXT LENGTH: 10
+MAX TIMER: 00
+
+---------------------------------------
+AID:
+---------------------------------------
+
+RID for MOVASIM: A000000564
+
+A0 00 00 05 64 = MOVASIM
+01 = MAX VERSION
+01 = MIN VERSION
+01 01 = JAVA 
+21 = YEAR FOR THE APPLET (2021)
+07 = MONTH FOR THE APPLET (JULY)
+00 = FIXED
+TAR = 53 4D 53 (SMS)
+
+PACKAGE AID: A0 00 00 05 64 01 01 01 01 21 07 00 53 4D 53 00 
+			(A00000056401010101210700534D5300)
+CLASS ID:    A0 00 00 05 64 01 01 01 01 21 07 00 53 4D 53 01
+			(A00000056401010101210700534D5301)
+			
+FILE: 	movasimecho.ijc
+APPLET: com.javacard.movasimecho
+
+MENU POSITION: none
+MENU IDENTIFIER: none
+MAX MENU ENTRIES: 00
+
+
+FOR INSTALL FOR INSTALL:
+------------------------
+PACKAGE AID: A00000056401010101210700534D5300
+APPLET AID: A00000056401010101210700534D5301
+INSTANCE AID: A00000056401010101210700534D5301
+
+UICC System Specific Parameters, for testing/debugging:
+8008FF0000000000000081180001000010A0000000871002FF54FF0789312E30FF010000
+It is needed full access to AID USIM, for example: A0000000871002FF54FF0789312E30FF.
+It is saved in the file 3F00\4F31 the log of what's going on.
+
+UICC Parameters for production:
+UICC Toolkit Application Specific Parameters:
+FF00000000000000
+UICC Access Application Specific Parameters:
+0001000010A0000000871002FF54FF0789312E30FF010000
+UICC Administrative Access Application Specific Parameters:
+00010000
+
+
+---------------------------------------
+PARAMETERS: 
+---------------------------------------
+NONE
+
+
+---------------------------------------
+INFORMATION: 
+---------------------------------------
+By default it is set the TPDA to:
+44536 = 0x05 81 44 35 F6
+But, the Send SMS is sent to the originating address.
+
+
+

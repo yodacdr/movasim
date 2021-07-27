@@ -1,0 +1,738 @@
+// converted by version 1.1
+// on Tue Jul 27 16:39:56 ART 2021
+
+.package com/javacard/movasimecho {
+	.aid 0xA0:0x0:0x0:0x5:0x64:0x1:0x1:0x1:0x1:0x21:0x7:0x0:0x53:0x4D:0x53:0x0;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.0;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x9:0x0:0x5:0xFF:0xFF:0xFF:0xFF:0x89:0x12:0x0:0x0:0x0 1.0;		//uicc/toolkit
+		0xA0:0x0:0x0:0x0:0x87:0x10:0x5:0xFF:0xFF:0xFF:0xFF:0x89:0x13:0x20:0x0:0x0 1.1;		//uicc/usim/toolkit
+	}
+
+	.applet {
+		0xA0:0x0:0x0:0x5:0x64:0x1:0x1:0x1:0x1:0x21:0x7:0x0:0x53:0x4D:0x53:0x1 movasimecho;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] movasimecho/bufferSMSPP;
+		// 1
+		instanceFieldRef byte[] movasimecho/buffer;
+		// 2
+		instanceFieldRef short movasimecho/lengthMsg;
+		// 3
+		instanceFieldRef short movasimecho/bufferSMSLen;
+		// 4
+		instanceFieldRef short movasimecho/posUdl;
+		// 5
+		instanceFieldRef short movasimecho/posUD;
+		// 6
+		staticFieldRef byte[] movasimecho/validityPeriod;
+		// 7
+		staticMethodRef movasimecho/smsBuildMsgHeader(BBBB[BB)Z;
+		// 8
+		staticFieldRef byte[] movasimecho/bufferSMS;
+		// 9
+		staticMethodRef movasimecho/smsAddMessage2Body(S[B)Z;
+		// 10
+		staticMethodRef 1.14.0()Luicc/toolkit/ProactiveHandler;;		// uicc/toolkit/ProactiveHandlerSystem.getTheHandler()Luicc/toolkit/ProactiveHandler;
+			.descriptor	Luicc/toolkit/ProactiveHandler;	1.5;
+
+		// 11
+		classRef 1.5;		// uicc/toolkit/ProactiveHandler
+		// 12
+		staticMethodRef movasimecho/smsSendMessage(Luicc/toolkit/ProactiveHandler;)B;
+			.descriptor	Luicc/toolkit/ProactiveHandler;	1.5;
+
+		// 13
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 14
+		virtualMethodRef movasimecho/buildAndSendSMS()Z;
+		// 15
+		staticMethodRef 1.17.0()Luicc/toolkit/ProactiveResponseHandler;;		// uicc/toolkit/ProactiveResponseHandlerSystem.getTheHandler()Luicc/toolkit/ProactiveResponseHandler;
+			.descriptor	Luicc/toolkit/ProactiveResponseHandler;	1.6;
+
+		// 16
+		classRef 1.6;		// uicc/toolkit/ProactiveResponseHandler
+		// 17
+		classRef movasimecho;
+		// 18
+		staticMethodRef movasimecho/<init>([BSB)V;
+		// 19
+		staticFieldRef movasimecho movasimecho/AppletPluginHldr;
+		// 20
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
+		// 21
+		staticMethodRef 1.16.0()Luicc/toolkit/ToolkitRegistry;;		// uicc/toolkit/ToolkitRegistrySystem.getEntry()Luicc/toolkit/ToolkitRegistry;
+			.descriptor	Luicc/toolkit/ToolkitRegistry;	1.9;
+
+		// 22
+		classRef 1.9;		// uicc/toolkit/ToolkitRegistry
+		// 23
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 24
+		staticMethodRef 2.3.0()Luicc/usim/toolkit/USATEnvelopeHandler;;		// uicc/usim/toolkit/USATEnvelopeHandlerSystem.getTheHandler()Luicc/usim/toolkit/USATEnvelopeHandler;
+			.descriptor	Luicc/usim/toolkit/USATEnvelopeHandler;	2.1;
+
+		// 25
+		classRef 2.1;		// uicc/usim/toolkit/USATEnvelopeHandler
+		// 26
+		classRef 1.0;		// uicc/toolkit/ViewHandler
+		// 27
+		staticFieldRef byte[] movasimecho/TPDA;
+		// 28
+		staticMethodRef movasimecho/fTakeTPDASourceToDestination([BSS[B)V;
+		// 29
+		staticFieldRef boolean movasimecho/bSendSMS;
+		// 30
+		staticFieldRef byte movasimecho/nSendSMS;
+		// 31
+		staticMethodRef movasimecho/fSendSMS([BSS)V;
+		// 32
+		virtualMethodRef movasimecho/processSMSPP()V;
+		// 33
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 34
+		staticFieldRef byte[] movasimecho/generalBuffer;
+		// 35
+		classRef 1.13;		// uicc/toolkit/ToolkitException
+		// 36
+		staticMethodRef 0.16.3([BSSB)S;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+		// 37
+		classRef 1.2;		// uicc/toolkit/EditHandler
+	}
+
+	.class public movasimecho 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.shareable;
+
+		.fields {
+			private byte[] bufferSMSPP 0;		// [B
+			private byte[] buffer 1;		// [B
+			private short bufferSMSLen 2;		// S
+			private short lengthMsg 3;		// S
+			private short posUdl 4;		// S
+			private short posUD 5;		// S
+			public static movasimecho AppletPluginHldr 0;		// Lcom/javacard/movasimecho/movasimecho;
+			private static final short smsMaxLen = 160;		// S
+			private static final short IOD_TPDU_LENGTH = 205;		// S
+			private static byte[] bufferSMS = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			private static byte nSendSMS;		// B
+			private static boolean bSendSMS;		// Z
+			private static final byte SEND_SMS_MAX = 3;		// B
+			private static final short EVENT_FORMATTED_SMS_PP_ENV = 2;		// S
+			private static final short EVENT_FORMATTED_SMS_PP_UPD = 3;		// S
+			private static final short EVENT_UNFORMATTED_SMS_PP_ENV = 4;		// S
+			private static final short EVENT_UNFORMATTED_SMS_PP_UPD = 5;		// S
+			private static final byte smsMTI = 17;		// B
+			private static final byte smsMR = -1;		// B
+			private static final byte smsPID = 0;		// B
+			private static final byte smsValidityPeriod = -83;		// B
+			private static final byte[] validityPeriod = {-83};		// [B
+			private static final byte smsDataCodingScheme = 4;		// B
+			private static final byte FCI_LENGTH = 15;		// B
+			private static final short INCOMING_SMS_CHL_OFFSET = 6;		// S
+			private static final short IOD_BUFFER_LENGTH = 205;		// S
+			private static byte[] generalBuffer = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};		// [B
+			private static byte[] TPDA = {5,5,-127,68,53,-10,-1,-1,-1};		// [B
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+			buildAndSendSMS()Z;
+			processSMSPP()V;
+			processToolkit(S)V;
+			serviceDisplayText([BSS)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.implementedInterfaceInfoTable { 
+			.interface 0.2 { 		// javacard/framework/Shareable
+			}
+
+			.interface 1.8 { 		// uicc/toolkit/ToolkitInterface
+				10;		// processToolkit(S)V
+			}
+
+			.interface 1.7 { 		// uicc/toolkit/ToolkitConstants
+			}
+
+		}
+
+		.method public <init>([BSB)V 0 {
+			.stack 3;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 33;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					getstatic_a 8;		// reference com/javacard/movasimecho/movasimecho.bufferSMS
+					putfield_a 0;		// reference com/javacard/movasimecho/movasimecho.bufferSMSPP
+					aload_0;
+					getfield_a_this 0;		// reference com/javacard/movasimecho/movasimecho.bufferSMSPP
+					putfield_a 1;		// reference com/javacard/movasimecho/movasimecho.buffer
+					aload_0;
+					sconst_0;
+					putfield_s 2;		// short com/javacard/movasimecho/movasimecho.lengthMsg
+					sload_2;
+					aload_1;
+					sload_2;
+					baload;
+					sconst_1;
+					sadd;
+					sadd;
+					sstore_2;
+					sload_2;
+					aload_1;
+					sload_2;
+					baload;
+					sconst_1;
+					sadd;
+					sadd;
+					sstore_2;
+					sinc 2 1;
+					return;
+		}
+
+		.method public buildAndSendSMS()Z 8 {
+			.stack 7;
+			.locals 2;
+
+				L0:	aload_0;
+					bspush 17;
+					sconst_m1;
+					sconst_0;
+					sconst_4;
+					getstatic_a 6;		// reference com/javacard/movasimecho/movasimecho.validityPeriod
+					getstatic_a 6;		// reference com/javacard/movasimecho/movasimecho.validityPeriod
+					arraylength;
+					s2b;
+					invokespecial 7;		// com/javacard/movasimecho/movasimecho.smsBuildMsgHeader(BBBB[BB)Z
+					pop;
+					getfield_s_this 3;		// short com/javacard/movasimecho/movasimecho.bufferSMSLen
+					sstore_1;
+					sload_1;
+					sspush 160;
+					if_scmple L2;
+				L1:	sspush 160;
+					sstore_1;
+				L2:	aload_0;
+					sload_1;
+					sspush 255;
+					sand;
+					getstatic_a 8;		// reference com/javacard/movasimecho/movasimecho.bufferSMS
+					invokespecial 9;		// com/javacard/movasimecho/movasimecho.smsAddMessage2Body(S[B)Z
+					pop;
+					invokestatic 10;		// uicc/toolkit/ProactiveHandlerSystem.getTheHandler()Luicc/toolkit/ProactiveHandler;
+					astore_2;
+					aload_2;
+					bspush 19;
+					sconst_1;
+					bspush -125;
+					invokeinterface 4 11 23;		// uicc/toolkit/ProactiveHandler
+					aload_0;
+					aload_2;
+					invokespecial 12;		// com/javacard/movasimecho/movasimecho.smsSendMessage(Luicc/toolkit/ProactiveHandler;)B
+					pop;
+					sconst_1;
+					sreturn;
+				L3:	pop;
+					sconst_0;
+					sreturn;
+			.exceptionTable {
+				// start_block end_block handler_block catch_type_index
+				L0 L3 L3 35;
+			}
+		}
+
+		.method public deselect()V 4 {
+			.stack 0;
+			.locals 0;
+
+				L0:	return;
+		}
+
+		.method private fSendSMS([BSS)V {
+			.stack 5;
+			.locals 0;
+
+				L0:	aload_1;
+					sload_2;
+					getstatic_a 8;		// reference com/javacard/movasimecho/movasimecho.bufferSMS
+					sconst_0;
+					sload_3;
+					invokestatic 13;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					sload_3;
+					putfield_s 3;		// short com/javacard/movasimecho/movasimecho.bufferSMSLen
+					aload_0;
+					invokevirtual 14;		// com/javacard/movasimecho/movasimecho.buildAndSendSMS()Z
+					pop;
+					return;
+		}
+
+		.method private fTakeTPDASourceToDestination([BSS[B)V {
+			.stack 4;
+			.locals 4;
+
+				L0:	sconst_0;
+					sstore 5;
+					sconst_0;
+					sstore 7;
+					sconst_0;
+					sstore 8;
+					sload_2;
+					sconst_1;
+					sadd;
+					sstore 5;
+					sconst_1;
+					sstore 6;
+					goto L6;
+				L1:	aload_1;
+					sload 5;
+					baload;
+					bspush 127;
+					if_scmpne L4;
+				L2:	aload_1;
+					sload 5;
+					sconst_1;
+					sadd;
+					baload;
+					bspush -10;
+					if_scmpne L4;
+				L3:	sconst_1;
+					sstore 8;
+					goto L5;
+				L4:	aload 4;
+					sload 6;
+					aload_1;
+					sload 5;
+					baload;
+					bastore;
+					sinc 6 1;
+					sload 7;
+					sconst_1;
+					sadd;
+					s2b;
+					sstore 7;
+				L5:	sinc 5 1;
+				L6:	sload 8;
+					ifne L10;
+				L7:	sload 5;
+					sload_2;
+					sload_3;
+					sadd;
+					if_scmpge L10;
+				L8:	sload 5;
+					aload_1;
+					arraylength;
+					if_scmpge L10;
+				L9:	sload 6;
+					aload 4;
+					arraylength;
+					if_scmplt L1;
+				L10:	sload 7;
+					ifle L12;
+				L11:	aload 4;
+					sconst_0;
+					sload 7;
+					bastore;
+				L12:	return;
+		}
+
+		.method private getItemIdentifier()B {
+			.stack 1;
+			.locals 1;
+
+				L0:	invokestatic 15;		// uicc/toolkit/ProactiveResponseHandlerSystem.getTheHandler()Luicc/toolkit/ProactiveResponseHandler;
+					astore_1;
+					aload_1;
+					invokeinterface 1 16 16;		// uicc/toolkit/ProactiveResponseHandler
+					sreturn;
+		}
+
+		.method public getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable; 5 {
+			.stack 2;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/AID;	0.6;
+			.descriptor	Ljavacard/framework/Shareable;	0.2;
+
+				L0:	sload_2;
+					sconst_1;
+					if_scmpne L3;
+				L1:	aload_1;
+					ifnonnull L3;
+				L2:	aload_0;
+					areturn;
+				L3:	aconst_null;
+					areturn;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 5;
+			.locals 1;
+
+				L0:	new 17;		// com/javacard/movasimecho/movasimecho
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 18;		// com/javacard/movasimecho/movasimecho.<init>([BSB)V
+					putstatic_a 19;		// reference com/javacard/movasimecho/movasimecho.AppletPluginHldr
+					getstatic_a 19;		// reference com/javacard/movasimecho/movasimecho.AppletPluginHldr
+					invokevirtual 20;		// javacard/framework/Applet.register()V
+					invokestatic 21;		// uicc/toolkit/ToolkitRegistrySystem.getEntry()Luicc/toolkit/ToolkitRegistry;
+					astore_3;
+					aload_3;
+					sconst_2;
+					invokeinterface 2 22 0;		// uicc/toolkit/ToolkitRegistry
+					aload_3;
+					sconst_3;
+					invokeinterface 2 22 0;		// uicc/toolkit/ToolkitRegistry
+					aload_3;
+					sconst_4;
+					invokeinterface 2 22 0;		// uicc/toolkit/ToolkitRegistry
+					aload_3;
+					sconst_5;
+					invokeinterface 2 22 0;		// uicc/toolkit/ToolkitRegistry
+					aload_3;
+					sconst_1;
+					invokeinterface 2 22 0;		// uicc/toolkit/ToolkitRegistry
+					aload_3;
+					bspush 30;
+					invokeinterface 2 22 10;		// uicc/toolkit/ToolkitRegistry
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 1;
+			.locals 0;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 23;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	return;
+		}
+
+		.method public processSMSPP()V 9 {
+			.stack 5;
+			.locals 5;
+
+				L0:	sconst_0;
+					sstore_2;
+					sconst_0;
+					sstore_3;
+					sconst_0;
+					sstore 4;
+					invokestatic 24;		// uicc/usim/toolkit/USATEnvelopeHandlerSystem.getTheHandler()Luicc/usim/toolkit/USATEnvelopeHandler;
+					astore_1;
+					aload_1;
+					invokeinterface 1 25 23;		// uicc/usim/toolkit/USATEnvelopeHandler
+					sstore 5;
+					aload_1;
+					sconst_0;
+					getfield_a_this 1;		// reference com/javacard/movasimecho/movasimecho.buffer
+					sconst_0;
+					sload 5;
+					invokeinterface 5 26 6;		// uicc/toolkit/ViewHandler
+					pop;
+					aload_0;
+					getfield_a_this 1;		// reference com/javacard/movasimecho/movasimecho.buffer
+					sconst_0;
+					getfield_a_this 1;		// reference com/javacard/movasimecho/movasimecho.buffer
+					arraylength;
+					getstatic_a 27;		// reference com/javacard/movasimecho/movasimecho.TPDA
+					invokespecial 28;		// com/javacard/movasimecho/movasimecho.fTakeTPDASourceToDestination([BSS[B)V
+					aload_1;
+					invokeinterface 1 25 18;		// uicc/usim/toolkit/USATEnvelopeHandler
+					sstore_2;
+					aload_1;
+					invokeinterface 1 26 3;		// uicc/toolkit/ViewHandler
+					sload_2;
+					ssub;
+					sconst_1;
+					ssub;
+					sstore_3;
+					bspush 6;
+					aload_1;
+					sload_2;
+					bspush 6;
+					sadd;
+					invokeinterface 2 26 4;		// uicc/toolkit/ViewHandler
+					sadd;
+					sconst_1;
+					sadd;
+					sstore 4;
+					aload_0;
+					sload_3;
+					sconst_1;
+					sadd;
+					dup;
+					sstore_3;
+					sload 4;
+					ssub;
+					putfield_s 2;		// short com/javacard/movasimecho/movasimecho.lengthMsg
+					aload_1;
+					sload_2;
+					sload 4;
+					sadd;
+					getfield_a_this 1;		// reference com/javacard/movasimecho/movasimecho.buffer
+					sconst_0;
+					getfield_s_this 2;		// short com/javacard/movasimecho/movasimecho.lengthMsg
+					invokeinterface 5 26 6;		// uicc/toolkit/ViewHandler
+					pop;
+					sconst_1;
+					putstatic_b 29;		// boolean com/javacard/movasimecho/movasimecho.bSendSMS
+					sconst_0;
+					putstatic_b 30;		// byte com/javacard/movasimecho/movasimecho.nSendSMS
+					return;
+		}
+
+		.method public processToolkit(S)V 10 {
+			.stack 4;
+			.locals 0;
+
+				L0:	sload_1;
+					slookupswitch L5 6 1 L5 2 L4 3 L4 4 L4 5 L4 19 L1;
+				L1:	getstatic_b 29;		// boolean com/javacard/movasimecho/movasimecho.bSendSMS
+					ifeq L5;
+				L2:	getstatic_b 30;		// byte com/javacard/movasimecho/movasimecho.nSendSMS
+					sconst_1;
+					sadd;
+					s2b;
+					putstatic_b 30;		// byte com/javacard/movasimecho/movasimecho.nSendSMS
+					getstatic_b 30;		// byte com/javacard/movasimecho/movasimecho.nSendSMS
+					sconst_3;
+					if_scmple L5;
+				L3:	sconst_0;
+					putstatic_b 29;		// boolean com/javacard/movasimecho/movasimecho.bSendSMS
+					aload_0;
+					getfield_a_this 0;		// reference com/javacard/movasimecho/movasimecho.bufferSMSPP
+					sconst_0;
+					getfield_s_this 2;		// short com/javacard/movasimecho/movasimecho.lengthMsg
+					invokespecial 31;		// com/javacard/movasimecho/movasimecho.fSendSMS([BSS)V
+					goto L5;
+				L4:	aload_0;
+					invokevirtual 32;		// com/javacard/movasimecho/movasimecho.processSMSPP()V
+					goto L5;
+				L5:	return;
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	sconst_1;
+					sreturn;
+		}
+
+		.method public serviceDisplayText([BSS)V 11 {
+			.stack 6;
+			.locals 1;
+
+				L0:	invokestatic 10;		// uicc/toolkit/ProactiveHandlerSystem.getTheHandler()Luicc/toolkit/ProactiveHandler;
+					astore 4;
+					aload 4;
+					bspush -128;
+					sconst_4;
+					aload_1;
+					sload_2;
+					sload_3;
+					invokeinterface 6 11 25;		// uicc/toolkit/ProactiveHandler
+					aload 4;
+					invokeinterface 1 11 24;		// uicc/toolkit/ProactiveHandler
+					pop;
+					return;
+		}
+
+		.method private smsAddMessage2Body(S[B)Z {
+			.stack 5;
+			.locals 2;
+
+				L0:	sload_1;
+					sstore 4;
+					getfield_s_this 4;		// short com/javacard/movasimecho/movasimecho.posUdl
+					sload 4;
+					sadd;
+					sspush 205;
+					if_scmple L2;
+				L1:	sconst_0;
+					sreturn;
+				L2:	getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					getfield_s_this 4;		// short com/javacard/movasimecho/movasimecho.posUdl
+					sload 4;
+					sspush 255;
+					sand;
+					s2b;
+					bastore;
+					sconst_0;
+					sstore_3;
+					goto L4;
+				L3:	getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					aload_2;
+					sload_3;
+					baload;
+					bastore;
+					sinc 3 1;
+				L4:	sload_3;
+					sload 4;
+					if_scmplt L3;
+				L5:	sconst_1;
+					sreturn;
+		}
+
+		.method private smsBuildMsgHeader(BBBB[BB)Z {
+			.stack 6;
+			.locals 0;
+
+				L0:	getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					sconst_0;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					arraylength;
+					sconst_0;
+					invokestatic 36;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					aload_0;
+					sconst_0;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload_1;
+					bastore;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload_2;
+					bastore;
+					getstatic_a 27;		// reference com/javacard/movasimecho/movasimecho.TPDA
+					sconst_1;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					getfield_s_this 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					getstatic_a 27;		// reference com/javacard/movasimecho/movasimecho.TPDA
+					sconst_0;
+					baload;
+					invokestatic 13;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					getstatic_a 27;		// reference com/javacard/movasimecho/movasimecho.TPDA
+					sconst_0;
+					baload;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload_3;
+					bastore;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload 4;
+					bastore;
+					aload 5;
+					sconst_0;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					getfield_s_this 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload 6;
+					invokestatic 13;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sload 6;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					aload_0;
+					getfield_s_this 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					s2b;
+					putfield_s 4;		// short com/javacard/movasimecho/movasimecho.posUdl
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					aload_0;
+					dup;
+					getfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					dup_x 18;
+					sconst_1;
+					sadd;
+					putfield_s 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sconst_0;
+					bastore;
+					sconst_1;
+					sreturn;
+		}
+
+		.method private smsSendMessage(Luicc/toolkit/ProactiveHandler;)B {
+			.stack 6;
+			.locals 0;
+
+			.descriptor	Luicc/toolkit/ProactiveHandler;	1.5;
+
+				L0:	aload_1;
+					bspush 11;
+					getstatic_a 34;		// reference com/javacard/movasimecho/movasimecho.generalBuffer
+					sconst_0;
+					getfield_s_this 5;		// short com/javacard/movasimecho/movasimecho.posUD
+					sspush 255;
+					sand;
+					invokeinterface 5 37 15;		// uicc/toolkit/EditHandler
+				L1:	goto L3;
+				L2:	pop;
+					sconst_m1;
+					sreturn;
+				L3:	aload_1;
+					invokeinterface 1 11 24;		// uicc/toolkit/ProactiveHandler
+					sreturn;
+			.exceptionTable {
+				// start_block end_block handler_block catch_type_index
+				L0 L1 L2 35;
+			}
+		}
+
+	}
+
+}

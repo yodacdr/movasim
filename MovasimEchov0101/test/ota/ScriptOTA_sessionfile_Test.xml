@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE Session SYSTEM "scriptOta.dtd">
+
+<!--ScriptOTA - Remote Command session. Created on 21/07/2021 20:03:39-->
+
+<Session>
+  <settings commandType="0" tar="534D53" counter="0000000001" kicKey="11111111111111112222222222222222" kidKey="33333333333333334444444444444444" spi="00215555" expanded="False" />
+  <smsPp udhi="True" rp="False" sri="False" scts="00000000000000" oaToa="81" oa="1234567890" pid="7F" dcs="F6" scaToa="81" sca="000000000000" />
+  <command>AA BB CC</command>
+</Session>

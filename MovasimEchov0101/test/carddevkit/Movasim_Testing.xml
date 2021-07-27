@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE Settings SYSTEM "cardDevelopmentKit.dtd">
+
+<!--Card Development Kit - Settings template. Created on 20/07/2021 18:50:40-->
+
+<Settings applicationVersion="2.8.7">
+  <RemoteSecurity format="compact">
+    <spiSettings spi1="02" spi2="21" kic="55" kid="55" />
+    <counter>0000000011</counter>
+    <tar>000000</tar>
+    <keys>
+      <kic>11111111111111112222222222222222</kic>
+      <kid>33 33 33 33 33 33 33 33 44 44 44 44 44 44 44 44</kid>
+      <keysFile>C:\Program Files (x86)\Valid\Card Development Kit\Claves\Keys.ini</keysFile>
+    </keys>
+    <advancedSettings>
+      <tpOa ton="81">607091100</tpOa>
+      <tpPid>7F</tpPid>
+      <tpDcs>F6</tpDcs>
+      <tpScts>00000000000000</tpScts>
+      <tsSca ton="91">34607091100</tsSca>
+    </advancedSettings>
+  </RemoteSecurity>
+  <GlobalPlatformSecurity>
+    <aid>A000000151000000</aid>
+    <secureChannelSettings secLevel="01">
+      <kvn>0</kvn>
+      <keyId>1</keyId>
+    </secureChannelSettings>
+    <gpKeys>
+      <enc>11111111111111112222222222222222</enc>
+      <mac>33333333333333334444444444444444</mac>
+      <dek>33333333333333334444444444444444</dek>
+      <keysFile>C:\Program Files (x86)\Valid\Card Development Kit\Claves\Keys.ini</keysFile>
+    </gpKeys>
+    <gpVersionProtocol gpVersion="211">
+      <protocol>02</protocol>
+      <mode>55</mode>
+    </gpVersionProtocol>
+  </GlobalPlatformSecurity>
+  <AdminSecurity gpVersion="22">
+    <adm1>3132373836333233</adm1>
+    <aid>A000000151000000</aid>
+  </AdminSecurity>
+</Settings>

@@ -1,0 +1,241 @@
+Vcc Activation
+Reset 1.8 volts
+ATR T=0 (0,15), F/D = 16, Negotiable
+   TS 3B - Direct Convention
+   T0
+      Number of Historical Characters 15d
+      Following Chars TA1 TD1
+   TA1
+      Internal Clock 512d
+      Bit Rate Adjustment Factor 32d
+   TD1
+      Protocol T=0
+      Following Chars TD2
+   TD2
+      Protocol T=15
+      Following Chars TA3
+   TA3
+      Clock stop indicator X Supported, no preference
+      Class indicator U A, B, C
+   Historical bytes
+      Category indicator 80
+      Card Service Data, Tag = ' 03 ', Length =  1
+         Card-profile for application-independent card services
+            Direct application selection by full DF name Yes
+            Selection by partial DF name Yes
+            Data objects available in DIR file Yes
+            Data objects available in ATR file No
+            File I/O services by READ RECORD(S) command
+            RFU 0 0 0
+      Card Capabilities, Tag = ' 07 ', Length =  3
+         Software function table 1
+            DF Selection by full DF name Yes
+            DF Selection by partial DF name Yes
+            DF Selection by path Yes
+            DF Selection by file identifier Yes
+            DF Selection by implicit No
+            EF Management - Short EF identifier supported Yes
+            EF Management - Record number supported Yes
+            EF Management - Record identifier supported No
+         Software function table 2 (data coding byte)
+            RFU 0
+            Behaviour of write functions proprietary
+            RFU 0 0
+            Data unit size in nibbles 2
+         Software function table 3
+            RFU 0
+            Extended Lc and Le field No
+            RFU 0
+            Logical channel assignment by the card Yes
+            Logical channel assignment by the interface device No
+            Number of logical channels 4
+      Pre-issuing Data, Tag = ' 06 ', Length =  7
+         Value 56 04 27 01 07 01 00
+   TCK A2
+PPS Request T=0, F/D = 16
+   PPSS FF
+   PPS0
+      Label PPS1 Present
+      Protocol T=0
+   PPS1
+      Internal Clock 512d
+      Bit Rate Adjustment Factor 32d
+   PCK
+      Value 79
+PPS Response T=0, F/D = 16
+   PPSS FF
+   PPS0
+      Label PPS1 Present
+      Protocol T=0
+   PPS1
+      Internal Clock 512d
+      Bit Rate Adjustment Factor 32d
+   PCK
+      Value 79
+SELECT Master File
+   Select Option Select DF, EF or MF by file id
+   Activation session control Activation/Reset
+   Response Data Return FCP Template
+   Selection by AID control First or only occurrence
+   File Master File
+611F Get Response request, 31 bytes available
+GET RESPONSE
+   Le 31
+...
+
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+9000 Normal Ending Of The Command
+   FCP Template, Tag = ' 62 ', Length =  27
+      File Descriptor, Tag = ' 82 ', Length =  2
+         File Descriptor Byte
+            File Type DF or ADF
+            File Accessibility Shareable file
+         Data Coding Byte 21
+      File ID, Tag = ' 83 ', Length =  2
+         File ID 5F 3B
+      Life Cycle Status Integer, Tag = ' 8A ', Length =  1
+         Life Cycle Status Integer Operational state - activated
+      Referenced Security Attributes, Tag = ' 8B ', Length =  3
+         File to reference: 6F 06
+         Record: 24
+      PIN Status Template DO, Tag = ' C6 ', Length =  9
+         PS_DO, Tag = ' 90 ', Length =  1
+            PIN Appl 1 (01) Disabled
+            Second PIN Appl 1 (81) Enabled
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value PIN Appl 1 (01)
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value Second PIN Appl 1 (81)
+ENVELOPE SMS-PP data download
+   SMS-PP data download, Tag = ' D1 ', Length =  59
+      Device identities, Tag = ' 02 ', Length =  2
+         Source device identity Network
+         Destination device identity UICC
+      Address, Tag = ' 06 ', Length =  7
+         Type of address field
+            MSB 1
+            Type of Number International
+            Numbering plan ID ISDN/Telephone
+         Dialling number string 54079000824
+      SMS TPDU, Tag = ' 0B ', Length =  44
+         SMS TPDU
+            First Octet
+               TP Message Type Indicator SMS DELIVER
+               TP More Messages To Send No more messages are waiting for the MS in this SC
+               TP Loop Prevention The message has not been forwarded and is not a spawned message
+               RFU 0b
+               TP Status Report Indication A status report shall not be returned to the SME
+               TP User Data Header Indication The beginning of the TP UD field contains a Header in addition to the short message
+               TP Reply Path TP Reply Path parameter is not set in this SMS SUBMIT/DELIVER
+            TP Originating Address
+               Address Length 5
+               Type of Address
+                  Numbering plan identification ISDN/telephone numbering plan
+                  Type of number Unknown
+               Address Value 44536
+            TP Protocol Identifier (U)SIM Data download
+            TP Data Coding Scheme
+               Data coding/message class
+                  Message Coding 8 bit data
+                  Message Class Class 2 (U)SIM specific message
+            TS Service Centre Time Stamp Year: 21, Month: 07, Day: 27, Hour: 16, Minute: 49, Second: 32, Time Zone: -180minutes
+            TP User Data Length 28
+            TP User Data Header
+               Length of User Data Header 2
+               Information-Element-Identifier (U)SIM Toolkit Security Headers
+               Length of Information-Element 0
+            TP User Data '00 15 0D 00 00 55 55 53 4D 53 00 00 00 00 00 00 50 52 55 45 42 41 32 90 00'
+9000 Normal Ending Of The Command
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+6C1D Resend request, 29 bytes required
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+9000 Normal Ending Of The Command
+   FCP Template, Tag = ' 62 ', Length =  27
+      File Descriptor, Tag = ' 82 ', Length =  2
+         File Descriptor Byte
+            File Type DF or ADF
+            File Accessibility Shareable file
+         Data Coding Byte 21
+      File ID, Tag = ' 83 ', Length =  2
+         File ID 5F 3B
+      Life Cycle Status Integer, Tag = ' 8A ', Length =  1
+         Life Cycle Status Integer Operational state - activated
+      Referenced Security Attributes, Tag = ' 8B ', Length =  3
+         File to reference: 6F 06
+         Record: 24
+      PIN Status Template DO, Tag = ' C6 ', Length =  9
+         PS_DO, Tag = ' 90 ', Length =  1
+            PIN Appl 1 (01) Disabled
+            Second PIN Appl 1 (81) Enabled
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value PIN Appl 1 (01)
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value Second PIN Appl 1 (81)
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+6C1D Resend request, 29 bytes required
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+9000 Normal Ending Of The Command
+   FCP Template, Tag = ' 62 ', Length =  27
+      File Descriptor, Tag = ' 82 ', Length =  2
+         File Descriptor Byte
+            File Type DF or ADF
+            File Accessibility Shareable file
+         Data Coding Byte 21
+      File ID, Tag = ' 83 ', Length =  2
+         File ID 5F 3B
+      Life Cycle Status Integer, Tag = ' 8A ', Length =  1
+         Life Cycle Status Integer Operational state - activated
+      Referenced Security Attributes, Tag = ' 8B ', Length =  3
+         File to reference: 6F 06
+         Record: 24
+      PIN Status Template DO, Tag = ' C6 ', Length =  9
+         PS_DO, Tag = ' 90 ', Length =  1
+            PIN Appl 1 (01) Disabled
+            Second PIN Appl 1 (81) Enabled
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value PIN Appl 1 (01)
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value Second PIN Appl 1 (81)
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+6C1D Resend request, 29 bytes required
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+9000 Normal Ending Of The Command
+   FCP Template, Tag = ' 62 ', Length =  27
+      File Descriptor, Tag = ' 82 ', Length =  2
+         File Descriptor Byte
+            File Type DF or ADF
+            File Accessibility Shareable file
+         Data Coding Byte 21
+      File ID, Tag = ' 83 ', Length =  2
+         File ID 5F 3B
+      Life Cycle Status Integer, Tag = ' 8A ', Length =  1
+         Life Cycle Status Integer Operational state - activated
+      Referenced Security Attributes, Tag = ' 8B ', Length =  3
+         File to reference: 6F 06
+         Record: 24
+      PIN Status Template DO, Tag = ' C6 ', Length =  9
+         PS_DO, Tag = ' 90 ', Length =  1
+            PIN Appl 1 (01) Disabled
+            Second PIN Appl 1 (81) Enabled
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value PIN Appl 1 (01)
+         Key Reference, Tag = ' 83 ', Length =  1
+            Key Reference Value Second PIN Appl 1 (81)
+STATUS 
+   Indication No indication
+   Response data Response parameter and data identical to SELECT command
+6C1D Resend request, 29 bytes required

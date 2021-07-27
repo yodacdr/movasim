@@ -1,0 +1,861 @@
+<!ELEMENT Card (SystemInitialisation, ISDR, ECASD, NetworkAttachment?, NativeAraM?, Profile*, cardVariables?, Settings?)>
+<!ATTLIST Card applicationVersion CDATA #REQUIRED>
+
+
+<!ELEMENT SystemInitialisation (System, JavaCard_Syst?, CATRE?, CATTP?, EAP?, AmendmentC?, RAM_HTTPS?, Uicc_Configuration?, PROPRIETARY_FEATURES?, UICC_System?, PERSO_WAFER?, PERSO_WAFER_INF?, BOOTLOADER_DATA?)>
+<!ATTLIST SystemInitialisation Base CDATA #REQUIRED>
+<!ATTLIST SystemInitialisation BaseId CDATA #REQUIRED>
+
+
+<!ELEMENT System (atr, atrChanged, transmissionSpeed, voltage, numProfiles, eol?, profileBufferSize?, nfc?, compact?, reducedPower?, bootloader?)>
+
+<!ELEMENT atr (#PCDATA)>
+
+<!ELEMENT atrChanged (#PCDATA)>
+
+<!ELEMENT transmissionSpeed (#PCDATA)>
+
+<!ELEMENT voltage EMPTY>
+<!ATTLIST voltage v1_8 CDATA #REQUIRED>
+<!ATTLIST voltage v3 CDATA #REQUIRED>
+<!ATTLIST voltage v5 CDATA #REQUIRED>
+
+<!ELEMENT numProfiles (#PCDATA)>
+
+<!ELEMENT eol (#PCDATA)>
+
+<!ELEMENT profileBufferSize (#PCDATA)>
+
+<!ELEMENT nfc (#PCDATA)>
+
+<!ELEMENT compact (#PCDATA)>
+
+<!ELEMENT reducedPower (#PCDATA)>
+
+<!ELEMENT bootloader (#PCDATA)>
+
+
+<!ELEMENT JavaCard_Syst (numPackages, numApplets)>
+
+
+<!ELEMENT CATRE (numConcatIn, numConcatOut, systemProactiveCommands, terminalProfileLen?)>
+
+<!ELEMENT numConcatIn (#PCDATA)>
+
+<!ELEMENT numConcatOut (#PCDATA)>
+
+<!ELEMENT systemProactiveCommands (#PCDATA)>
+
+<!ELEMENT terminalProfileLen (#PCDATA)>
+
+
+<!ELEMENT CATTP (cattp, numConnections, bufferSize)>
+
+<!ELEMENT cattp (#PCDATA)>
+
+<!ELEMENT numConnections (#PCDATA)>
+
+<!ELEMENT bufferSize (#PCDATA)>
+
+
+<!ELEMENT EAP (eap)>
+
+<!ELEMENT eap (#PCDATA)>
+
+
+<!ELEMENT AmendmentC (uid, sak, atqA, ats, fwiSfgi, cid, rateMaxA, pupi, afi, atqB, hLayerResponse, maxRateB, maskUid, maskSak, maskAtqA, maskAts, maskFwiSfgi, maskCid, maskRateMaxA, maskPupi, maskAfi, maskAtqB, maskHLayerResponse, maskMaxRateB)>
+
+<!ELEMENT uid (#PCDATA)>
+
+<!ELEMENT sak (#PCDATA)>
+
+<!ELEMENT atqA (#PCDATA)>
+
+<!ELEMENT ats (#PCDATA)>
+
+<!ELEMENT fwiSfgi (#PCDATA)>
+
+<!ELEMENT cid (#PCDATA)>
+
+<!ELEMENT rateMaxA (#PCDATA)>
+
+<!ELEMENT pupi (#PCDATA)>
+
+<!ELEMENT afi (#PCDATA)>
+
+<!ELEMENT atqB (#PCDATA)>
+
+<!ELEMENT hLayerResponse (#PCDATA)>
+
+<!ELEMENT maxRateB (#PCDATA)>
+
+<!ELEMENT maskUid (#PCDATA)>
+
+<!ELEMENT maskSak (#PCDATA)>
+
+<!ELEMENT maskAtqA (#PCDATA)>
+
+<!ELEMENT maskAts (#PCDATA)>
+
+<!ELEMENT maskFwiSfgi (#PCDATA)>
+
+<!ELEMENT maskCid (#PCDATA)>
+
+<!ELEMENT maskRateMaxA (#PCDATA)>
+
+<!ELEMENT maskPupi (#PCDATA)>
+
+<!ELEMENT maskAfi (#PCDATA)>
+
+<!ELEMENT maskAtqB (#PCDATA)>
+
+<!ELEMENT maskHLayerResponse (#PCDATA)>
+
+<!ELEMENT maskMaxRateB (#PCDATA)>
+
+
+<!ELEMENT RAM_HTTPS (pskIdLength)>
+
+<!ELEMENT pskIdLength (#PCDATA)>
+
+
+<!ELEMENT Uicc_Configuration (casdElf, ssdElf?, casdEm?)>
+
+<!ELEMENT casdElf (#PCDATA)>
+
+<!ELEMENT ssdElf (#PCDATA)>
+
+<!ELEMENT casdEm (#PCDATA)>
+
+
+<!ELEMENT PROPRIETARY_FEATURES (refreshRetries?, roamingControl?, limitRunGsm?, pollingOffDisabled?, ramTarDual?, refreshTelecom?, otaHandler?, ccmAdm1uicc?, ccmAdm1isd?, localSwap?, localSwapStatus?, emergencyProfile?, usatPairing?, provideLocalInfoImeiSv?, chunkedHttpRequest?, changeOtaErrors?, notUpdateEFSPCS?, explicitChannel?, mapGPin2GPin8ToChv2?, activationCommand?, admVerify2G?, cardStateOpReady?, bootstrap?, replaceUmpc?, disableMoreTime?, lastKvnSmsNotification?, altIdPropEf?, enableQualcomm?, reuseOtpkNotSupported?)>
+
+<!ELEMENT refreshRetries (#PCDATA)>
+
+<!ELEMENT roamingControl (#PCDATA)>
+
+<!ELEMENT limitRunGsm (#PCDATA)>
+
+<!ELEMENT pollingOffDisabled (#PCDATA)>
+
+<!ELEMENT ramTarDual (#PCDATA)>
+
+<!ELEMENT refreshTelecom (#PCDATA)>
+
+<!ELEMENT otaHandler (#PCDATA)>
+
+<!ELEMENT ccmAdm1uicc (#PCDATA)>
+
+<!ELEMENT ccmAdm1isd (#PCDATA)>
+
+<!ELEMENT localSwap (#PCDATA)>
+
+<!ELEMENT localSwapStatus (#PCDATA)>
+
+<!ELEMENT emergencyProfile (#PCDATA)>
+
+<!ELEMENT usatPairing (#PCDATA)>
+
+<!ELEMENT provideLocalInfoImeiSv (#PCDATA)>
+
+<!ELEMENT chunkedHttpRequest (#PCDATA)>
+
+<!ELEMENT changeOtaErrors (#PCDATA)>
+
+<!ELEMENT notUpdateEFSPCS (#PCDATA)>
+
+<!ELEMENT explicitChannel (#PCDATA)>
+
+<!ELEMENT mapGPin2GPin8ToChv2 (#PCDATA)>
+
+<!ELEMENT activationCommand (#PCDATA)>
+
+<!ELEMENT admVerify2G (adm1, adm2, adm3, adm4, adm5, adm6, adm7, adm8, adm9, adm10)>
+
+<!ELEMENT adm1 (#PCDATA)>
+
+<!ELEMENT adm2 (#PCDATA)>
+
+<!ELEMENT adm3 (#PCDATA)>
+
+<!ELEMENT adm4 (#PCDATA)>
+
+<!ELEMENT adm5 (#PCDATA)>
+
+<!ELEMENT adm6 (#PCDATA)>
+
+<!ELEMENT adm7 (#PCDATA)>
+
+<!ELEMENT adm8 (#PCDATA)>
+
+<!ELEMENT adm9 (#PCDATA)>
+
+<!ELEMENT adm10 (#PCDATA)>
+
+<!ELEMENT cardStateOpReady (#PCDATA)>
+
+<!ELEMENT bootstrap (#PCDATA)>
+
+<!ELEMENT replaceUmpc (#PCDATA)>
+
+<!ELEMENT disableMoreTime (#PCDATA)>
+
+<!ELEMENT lastKvnSmsNotification (#PCDATA)>
+
+<!ELEMENT altIdPropEf (#PCDATA)>
+
+<!ELEMENT enableQualcomm (#PCDATA)>
+
+<!ELEMENT reuseOtpkNotSupported (#PCDATA)>
+
+
+<!ELEMENT UICC_System (EF_6FCE?, EF_6F88?, EF_6F12?, EF_6F70?, EF_6F23?, EF_6F04?, EF_6FCD?, EF_6F05?, EF_6F50?, EF_6F51?, EF_6F09?, EF_6F80?, EF_6F01?, EF_6F02?, EF_6F1B?, EF_2F07?)>
+
+<!ELEMENT EF_6FCE (#PCDATA)>
+
+<!ELEMENT EF_6F88 (#PCDATA)>
+
+<!ELEMENT EF_6F12 (#PCDATA)>
+
+<!ELEMENT EF_6F70 (#PCDATA)>
+
+<!ELEMENT EF_6F23 (#PCDATA)>
+
+<!ELEMENT EF_6F04 (#PCDATA)>
+
+<!ELEMENT EF_6FCD (#PCDATA)>
+
+<!ELEMENT EF_6F50 (#PCDATA)>
+
+<!ELEMENT EF_6F51 (#PCDATA)>
+
+<!ELEMENT EF_6F09 (#PCDATA)>
+
+<!ELEMENT EF_6F80 (#PCDATA)>
+
+<!ELEMENT EF_6F01 (#PCDATA)>
+
+<!ELEMENT EF_6F02 (#PCDATA)>
+
+<!ELEMENT EF_6F1B (#PCDATA)>
+
+<!ELEMENT EF_2F07 (#PCDATA)>
+
+
+<!ELEMENT PERSO_WAFER (trigram, customerName, dataGenCenterSite, dataGenCenterName, xProfileRef, ciCode, ciRevision)>
+
+<!ELEMENT trigram (#PCDATA)>
+
+<!ELEMENT customerName (#PCDATA)>
+
+<!ELEMENT dataGenCenterSite (#PCDATA)>
+
+<!ELEMENT dataGenCenterName (#PCDATA)>
+
+<!ELEMENT xProfileRef (#PCDATA)>
+
+<!ELEMENT ciCode (#PCDATA)>
+
+<!ELEMENT ciRevision (#PCDATA)>
+
+
+<!ELEMENT PERSO_WAFER_INF (src)>
+
+<!ELEMENT src (#PCDATA)>
+
+
+<!ELEMENT BOOTLOADER_DATA (bootloaderdata)>
+
+<!ELEMENT bootloaderdata (#PCDATA)>
+
+
+<!ELEMENT ISDR (instanceIsdR, scp80keys?, scp81keys?, sin?, sdin?, dnsResolver?)>
+
+<!ELEMENT instanceIsdR EMPTY>
+<!ATTLIST instanceIsdR msl CDATA #IMPLIED>
+<!ATTLIST instanceIsdR params CDATA #IMPLIED>
+
+<!ELEMENT scp80keys (kic, kid, kik)>
+<!ATTLIST scp80keys kvn CDATA #REQUIRED>
+<!ATTLIST scp80keys type CDATA #REQUIRED>
+
+<!ELEMENT kic EMPTY>
+<!ATTLIST kic key CDATA #REQUIRED>
+<!ATTLIST kic varName CDATA #IMPLIED>
+
+<!ELEMENT kid EMPTY>
+<!ATTLIST kid key CDATA #REQUIRED>
+<!ATTLIST kid varName CDATA #IMPLIED>
+
+<!ELEMENT kik EMPTY>
+<!ATTLIST kik key CDATA #REQUIRED>
+<!ATTLIST kik varName CDATA #IMPLIED>
+
+<!ELEMENT scp81keys (psktls, pskDek)>
+<!ATTLIST scp81keys kvn CDATA #REQUIRED>
+
+<!ELEMENT psktls EMPTY>
+<!ATTLIST psktls key CDATA #REQUIRED>
+<!ATTLIST psktls keyId CDATA #IMPLIED>
+<!ATTLIST psktls varName CDATA #IMPLIED>
+
+<!ELEMENT pskDek EMPTY>
+<!ATTLIST pskDek key CDATA #REQUIRED>
+<!ATTLIST pskDek type CDATA #REQUIRED>
+<!ATTLIST pskDek varName CDATA #IMPLIED>
+
+<!ELEMENT sin (#PCDATA)>
+<!ATTLIST sin varName CDATA #IMPLIED>
+
+<!ELEMENT sdin (#PCDATA)>
+<!ATTLIST sdin varName CDATA #IMPLIED>
+
+<!ELEMENT dnsResolver (dnsServer*)>
+<!ATTLIST dnsResolver smsrFqdn CDATA #REQUIRED>
+
+<!ELEMENT dnsServer EMPTY>
+<!ATTLIST dnsServer ip CDATA #REQUIRED>
+<!ATTLIST dnsServer port CDATA #REQUIRED>
+
+
+<!ELEMENT ECASD (instanceEcasd, ((pkCi+, certEcasd, skEcasd, eccCurve) | (ci+, smDsAddress, smDpAddress?, euiccFwVersion?, sasAccreditationNumber?, rat?, euiccInfo2?, servicesList?)), eid, pskid?, agentid?, servicesList?)>
+
+<!ELEMENT instanceEcasd EMPTY>
+<!ATTLIST instanceEcasd params CDATA #IMPLIED>
+
+<!ELEMENT pkCi (x, y, caId?)>
+<!ATTLIST pkCi varName CDATA #IMPLIED>
+
+<!ELEMENT x (#PCDATA)>
+
+<!ELEMENT y (#PCDATA)>
+
+<!ELEMENT caId (#PCDATA)>
+<!ATTLIST caId varName CDATA #IMPLIED>
+
+<!ELEMENT certEcasd (#PCDATA)>
+<!ATTLIST certEcasd varName CDATA #IMPLIED>
+
+<!ELEMENT skEcasd (#PCDATA)>
+<!ATTLIST skEcasd varName CDATA #IMPLIED>
+
+<!ELEMENT eccCurve (p, a, b, g, n, k)>
+<!ATTLIST eccCurve keyParameterReference CDATA #IMPLIED>
+
+<!ELEMENT p (#PCDATA)>
+<!ATTLIST p varName CDATA #IMPLIED>
+
+<!ELEMENT a (#PCDATA)>
+<!ATTLIST a varName CDATA #IMPLIED>
+
+<!ELEMENT b (#PCDATA)>
+<!ATTLIST b varName CDATA #IMPLIED>
+
+<!ELEMENT g (x, y)>
+<!ATTLIST g varName CDATA #IMPLIED>
+
+<!ELEMENT n (#PCDATA)>
+<!ATTLIST n varName CDATA #IMPLIED>
+
+<!ELEMENT k (#PCDATA)>
+<!ATTLIST k varName CDATA #IMPLIED>
+
+<!ELEMENT ci (certCi, certEum?, skEuicc?, certEuicc?)>
+
+<!ELEMENT certCi (#PCDATA)>
+<!ATTLIST certCi varName CDATA #IMPLIED>
+
+<!ELEMENT certEum (#PCDATA)>
+<!ATTLIST certEum varName CDATA #IMPLIED>
+
+<!ELEMENT skEuicc (#PCDATA)>
+<!ATTLIST skEuicc varName CDATA #IMPLIED>
+
+<!ELEMENT certEuicc (#PCDATA)>
+<!ATTLIST certEuicc varName CDATA #IMPLIED>
+
+<!ELEMENT smDsAddress (#PCDATA)>
+
+<!ELEMENT smDpAddress (#PCDATA)>
+
+<!ELEMENT rat (#PCDATA)>
+
+<!ELEMENT euiccInfo2 (profileVersion, svn, euiccFwVersion, uiccCapability, ts102241Version?, gpVersion?, rspCapability, euiccCategory?, forbiddenPpr?, ppVersion, sasAccreditationNumber, dloaLabel?, dloaUrl?)>
+
+<!ELEMENT profileVersion (#PCDATA)>
+
+<!ELEMENT svn (#PCDATA)>
+
+<!ELEMENT euiccFwVersion (#PCDATA)>
+
+<!ELEMENT uiccCapability (#PCDATA)>
+
+<!ELEMENT ts102241Version (#PCDATA)>
+
+<!ELEMENT gpVersion (#PCDATA)>
+
+<!ELEMENT rspCapability (#PCDATA)>
+
+<!ELEMENT euiccCategory (#PCDATA)>
+
+<!ELEMENT forbiddenPpr (#PCDATA)>
+
+<!ELEMENT ppVersion (#PCDATA)>
+
+<!ELEMENT sasAccreditationNumber (#PCDATA)>
+
+<!ELEMENT dloaLabel (#PCDATA)>
+
+<!ELEMENT dloaUrl (#PCDATA)>
+
+<!ELEMENT servicesList (#PCDATA)>
+
+<!ELEMENT eid (#PCDATA)>
+<!ATTLIST eid gsmaV3 CDATA #IMPLIED>
+<!ATTLIST eid sinValue CDATA #IMPLIED>
+<!ATTLIST eid sdinValue CDATA #IMPLIED>
+<!ATTLIST eid varSinName CDATA #IMPLIED>
+<!ATTLIST eid varSdinName CDATA #IMPLIED>
+<!ATTLIST eid varName CDATA #IMPLIED>
+<!ATTLIST eid bPskIdAgentIdFromEid CDATA #IMPLIED>
+
+<!ELEMENT pskid (#PCDATA)>
+<!ATTLIST pskid varName CDATA #IMPLIED>
+
+<!ELEMENT agentid (#PCDATA)>
+<!ATTLIST agentid varName CDATA #IMPLIED>
+
+
+<!ELEMENT NetworkAttachment (instanceNetworkAttachment)>
+
+<!ELEMENT instanceNetworkAttachment EMPTY>
+<!ATTLIST instanceNetworkAttachment timeStatus CDATA #REQUIRED>
+<!ATTLIST instanceNetworkAttachment numberStatusNetwork CDATA #REQUIRED>
+<!ATTLIST instanceNetworkAttachment numberAttemptsNotifications CDATA #REQUIRED>
+<!ATTLIST instanceNetworkAttachment numberStatusNotifications CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment endureNetworkAttachmentFailure CDATA #REQUIRED>
+<!ATTLIST instanceNetworkAttachment endureUnconfirmedNotifications CDATA #REQUIRED>
+<!ATTLIST instanceNetworkAttachment disableFallback CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment timeNotifications CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment testMode CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment params CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment protocols CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment fallbackLimitedService CDATA #IMPLIED>
+<!ATTLIST instanceNetworkAttachment numberStatusFallback CDATA #IMPLIED>
+
+
+<!ELEMENT NativeAraM (responseAllARDO?)>
+<!ATTLIST NativeAraM supported CDATA #REQUIRED>
+
+<!ELEMENT responseAllARDO (#PCDATA)>
+
+
+<!ELEMENT Profile (ProfileInitialisation?, ISDP?, FileStructure?, SystemFiles?, cardFiles?, SystemApplications?, SecurityDomains?, cardApplications?, commands?)>
+<!ATTLIST Profile number CDATA #REQUIRED>
+<!ATTLIST Profile appsBeforePerso CDATA #REQUIRED>
+<!ATTLIST Profile transversal CDATA #IMPLIED>
+<!ATTLIST Profile nickname CDATA #IMPLIED>
+
+
+<!ELEMENT ProfileInitialisation (JC301_NFC?, JavaCard?, UICC?, GENERIC_MNO?, AUTHENTICATION_2G?, SIM?, USIM?, AUTHENTICATION_3G?, MENU_ENTRIES?, TUM?, TRU?, DUAL?, UiccConfiguration?, DevelopmentProfile?)>
+
+
+<!ELEMENT JC301_NFC (numPackages, numApplets)>
+
+<!ELEMENT numPackages (#PCDATA)>
+
+<!ELEMENT numApplets (#PCDATA)>
+
+
+<!ELEMENT JavaCard (numPackages, numApplets)>
+
+
+<!ELEMENT UICC (MF, EF_ADM, EF_PIN, EF_4603?, EF_4604?, EF_EF00?, EF_45CC?, EF_45CD?, EF_6F00?, EF_6FDE?, EF_6F05?, EF_6F1A?, EF_2F08?)>
+
+<!ELEMENT MF (numChildren, numMapped, efArr, recArr)>
+
+<!ELEMENT numChildren (#PCDATA)>
+
+<!ELEMENT numMapped (#PCDATA)>
+
+<!ELEMENT efArr (#PCDATA)>
+
+<!ELEMENT recArr (#PCDATA)>
+
+<!ELEMENT EF_ADM (numKeys, efArr, recArr)>
+
+<!ELEMENT numKeys (#PCDATA)>
+
+<!ELEMENT EF_PIN (idPIN, efArr, recArr, enablePIN?, disablePIN2?)>
+
+<!ELEMENT idPIN (#PCDATA)>
+
+<!ELEMENT EF_4603 (#PCDATA)>
+
+<!ELEMENT EF_4604 (#PCDATA)>
+
+<!ELEMENT EF_EF00 (#PCDATA)>
+
+<!ELEMENT EF_45CC (#PCDATA)>
+
+<!ELEMENT EF_45CD (#PCDATA)>
+
+<!ELEMENT EF_6F00 (#PCDATA)>
+
+<!ELEMENT EF_6FDE (#PCDATA)>
+
+<!ELEMENT EF_6F1A (#PCDATA)>
+
+<!ELEMENT EF_2F08 (#PCDATA)>
+
+<!ELEMENT EF_6F05 (#PCDATA)>
+
+
+<!ELEMENT GENERIC_MNO (algorithm, Milenage)>
+
+<!ELEMENT algorithm (#PCDATA)>
+
+<!ELEMENT Milenage (c1?, c2?, c3?, c4?, c5?, r1?, r2?, r3?, r4?, r5?)>
+<!ATTLIST Milenage milenDefault CDATA #REQUIRED>
+<!ATTLIST Milenage milenTme CDATA #IMPLIED>
+
+<!ELEMENT c1 (#PCDATA)>
+
+<!ELEMENT c2 (#PCDATA)>
+
+<!ELEMENT c3 (#PCDATA)>
+
+<!ELEMENT c4 (#PCDATA)>
+
+<!ELEMENT c5 (#PCDATA)>
+
+<!ELEMENT r1 (#PCDATA)>
+
+<!ELEMENT r2 (#PCDATA)>
+
+<!ELEMENT r3 (#PCDATA)>
+
+<!ELEMENT r4 (#PCDATA)>
+
+<!ELEMENT r5 (#PCDATA)>
+
+
+<!ELEMENT AUTHENTICATION_2G (algorithm, xor2G?)>
+
+<!ELEMENT xor2G (#PCDATA)>
+
+
+<!ELEMENT SIM (enablePIN, milenXOR)>
+
+<!ELEMENT enablePIN (#PCDATA)>
+
+<!ELEMENT milenXOR (#PCDATA)>
+
+
+<!ELEMENT USIM (disablePIN2, alpha, alphaValue, Milenage2G, Milenage3G)>
+
+<!ELEMENT disablePIN2 (#PCDATA)>
+
+<!ELEMENT alpha (#PCDATA)>
+
+<!ELEMENT alphaValue (#PCDATA)>
+
+<!ELEMENT Milenage2G (#PCDATA)>
+
+<!ELEMENT Milenage3G (milenLen, configLen4)>
+
+<!ELEMENT milenLen (#PCDATA)>
+
+<!ELEMENT configLen4 (#PCDATA)>
+
+
+<!ELEMENT AUTHENTICATION_3G (adfAuth+)>
+<!ATTLIST AUTHENTICATION_3G maxAuthCounter CDATA #IMPLIED>
+
+<!ELEMENT adfAuth (sqn?, algorithm3g?, Milenage?, TUAK?, xorVirtual2G?, resLen?, xor3G?)>
+<!ATTLIST adfAuth mappedAdf CDATA #IMPLIED>
+
+<!ELEMENT sqn (wrapAround, delta, ageLimit)>
+
+<!ELEMENT wrapAround (#PCDATA)>
+
+<!ELEMENT delta (#PCDATA)>
+<!ATTLIST delta alpha CDATA #IMPLIED>
+
+<!ELEMENT ageLimit (#PCDATA)>
+<!ATTLIST ageLimit beta CDATA #IMPLIED>
+
+<!ELEMENT algorithm3g (#PCDATA)>
+
+<!ELEMENT TUAK (ck256, ik256, numIterations)>
+
+<!ELEMENT ck256 (#PCDATA)>
+
+<!ELEMENT ik256 (#PCDATA)>
+
+<!ELEMENT numIterations (#PCDATA)>
+
+<!ELEMENT xorVirtual2G (#PCDATA)>
+
+<!ELEMENT resLen (#PCDATA)>
+
+<!ELEMENT xor3G (#PCDATA)>
+
+
+<!ELEMENT MENU_ENTRIES (numMenuEntries)>
+
+<!ELEMENT numMenuEntries (#PCDATA)>
+
+
+<!ELEMENT TUM (tum, lastState)>
+
+<!ELEMENT tum (#PCDATA)>
+
+<!ELEMENT lastState (#PCDATA)>
+
+
+<!ELEMENT TRU (tru)>
+
+<!ELEMENT tru (#PCDATA)>
+
+
+<!ELEMENT DUAL (dual, configuration, valueMSB)>
+
+<!ELEMENT dual (#PCDATA)>
+
+<!ELEMENT configuration (#PCDATA)>
+
+<!ELEMENT valueMSB (#PCDATA)>
+
+
+<!ELEMENT UiccConfiguration (tag9F70, tag87)>
+
+<!ELEMENT tag9F70 (#PCDATA)>
+
+<!ELEMENT tag87 (#PCDATA)>
+
+
+<!ELEMENT DevelopmentProfile (getDataTelRel6)>
+
+<!ELEMENT getDataTelRel6 (#PCDATA)>
+
+
+<!ELEMENT ISDP (instanceIsdP, scp03keys, connectivityParameters?, profileMetadata?, defaultProvisioning?, pol1?)>
+<!ATTLIST ISDP enabledByDefault CDATA #IMPLIED>
+
+<!ELEMENT instanceIsdP EMPTY>
+<!ATTLIST instanceIsdP aid CDATA #REQUIRED>
+<!ATTLIST instanceIsdP memoryQuota CDATA #IMPLIED>
+<!ATTLIST instanceIsdP params CDATA #IMPLIED>
+
+<!ELEMENT scp03keys (encIsdP, macIsdP, dekIsdP)>
+<!ATTLIST scp03keys kvn CDATA #REQUIRED>
+
+<!ELEMENT encIsdP EMPTY>
+<!ATTLIST encIsdP key CDATA #REQUIRED>
+<!ATTLIST encIsdP varName CDATA #IMPLIED>
+
+<!ELEMENT macIsdP EMPTY>
+<!ATTLIST macIsdP key CDATA #REQUIRED>
+<!ATTLIST macIsdP varName CDATA #IMPLIED>
+
+<!ELEMENT dekIsdP EMPTY>
+<!ATTLIST dekIsdP key CDATA #REQUIRED>
+<!ATTLIST dekIsdP varName CDATA #IMPLIED>
+
+<!ELEMENT connectivityParameters (#PCDATA)>
+<!ATTLIST connectivityParameters varName CDATA #IMPLIED>
+
+<!ELEMENT profileMetadata (#PCDATA)>
+<!ATTLIST profileMetadata varName CDATA #IMPLIED>
+
+<!ELEMENT defaultProvisioning (#PCDATA)>
+
+<!ELEMENT pol1 (#PCDATA)>
+
+
+<!ELEMENT FileStructure (m2m)>
+
+<!ELEMENT m2m (#PCDATA)>
+
+
+<!ELEMENT SystemFiles (EF_2FFF, EF_2FFE)>
+<!ATTLIST SystemFiles sync4603 CDATA #IMPLIED>
+<!ATTLIST SystemFiles syncACC CDATA #IMPLIED>
+
+<!ELEMENT EF_2FFF (content, variable*)>
+
+<!ELEMENT EF_2FFE (content, variable*)>
+
+
+<!ELEMENT cardFiles (file*)>
+
+<!ELEMENT file ((propertiesDF | propertiesEF), size, security, content?, variable*)>
+<!ATTLIST file path CDATA #REQUIRED>
+<!ATTLIST file type CDATA #REQUIRED>
+<!ATTLIST file status CDATA #REQUIRED>
+<!ATTLIST file order CDATA #IMPLIED>
+<!ATTLIST file shareable CDATA #REQUIRED>
+<!ATTLIST file interop CDATA #IMPLIED>
+
+<!ELEMENT propertiesDF EMPTY>
+<!ATTLIST propertiesDF AID CDATA #REQUIRED>
+<!ATTLIST propertiesDF mapped CDATA #IMPLIED>
+		
+<!ELEMENT propertiesEF EMPTY>
+<!ATTLIST propertiesEF SFI CDATA #REQUIRED>
+<!ATTLIST propertiesEF mapped CDATA #REQUIRED>
+<!ATTLIST propertiesEF readableInvalidated CDATA #REQUIRED>
+<!ATTLIST propertiesEF increasable CDATA #REQUIRED>
+<!ATTLIST propertiesEF highUpdate CDATA #IMPLIED>
+<!ATTLIST propertiesEF dpeList CDATA #IMPLIED>
+<!ATTLIST propertiesEF activateCreated CDATA #IMPLIED>
+<!ATTLIST propertiesEF fillPattern CDATA #IMPLIED>
+<!ATTLIST propertiesEF repeatPattern CDATA #IMPLIED>
+
+<!ELEMENT size EMPTY>
+<!ATTLIST size numChildren CDATA #IMPLIED>
+<!ATTLIST size numMapped CDATA #IMPLIED>
+<!ATTLIST size fileSize CDATA #IMPLIED>
+<!ATTLIST size numRecords CDATA #IMPLIED>
+<!ATTLIST size recordSize CDATA #IMPLIED>
+		
+<!ELEMENT security (security3G, security2G)>
+<!ATTLIST security OTArecord CDATA #REQUIRED>
+
+<!ELEMENT security3G EMPTY>
+<!ATTLIST security3G EFARR CDATA #REQUIRED>
+<!ATTLIST security3G recordSE00 CDATA #REQUIRED>
+<!ATTLIST security3G recordSE01 CDATA #REQUIRED>
+
+<!ELEMENT security2G EMPTY>
+<!ATTLIST security2G create CDATA #IMPLIED>
+<!ATTLIST security2G deleteChild CDATA #IMPLIED>
+<!ATTLIST security2G read CDATA #IMPLIED>
+<!ATTLIST security2G update CDATA #IMPLIED>
+<!ATTLIST security2G increase CDATA #IMPLIED>
+<!ATTLIST security2G delete CDATA #IMPLIED>
+<!ATTLIST security2G activate CDATA #IMPLIED>
+<!ATTLIST security2G deactivate CDATA #IMPLIED>
+
+<!ELEMENT content (#PCDATA)>
+
+<!ELEMENT variable (#PCDATA)>
+<!ATTLIST variable offset CDATA #REQUIRED>
+<!ATTLIST variable len CDATA #REQUIRED>
+<!ATTLIST variable instanceNumber CDATA #IMPLIED>
+
+
+<!ELEMENT SystemApplications (GlobalPlatform22?, RFM*, cattpInstance?)>
+
+<!ELEMENT GlobalPlatform22 (nativeISD, putKey*, oscPutKey?)>
+
+<!ELEMENT nativeISD EMPTY>
+<!ATTLIST nativeISD protocol CDATA #REQUIRED>
+<!ATTLIST nativeISD mode CDATA #REQUIRED>
+<!ATTLIST nativeISD numKeys CDATA #REQUIRED>
+<!ATTLIST nativeISD numTags CDATA #REQUIRED>
+<!ATTLIST nativeISD tar CDATA #REQUIRED>
+<!ATTLIST nativeISD msl CDATA #REQUIRED>
+<!ATTLIST nativeISD bip CDATA #REQUIRED>
+<!ATTLIST nativeISD params CDATA #IMPLIED>
+
+<!ELEMENT putKey EMPTY>
+<!ATTLIST putKey versionNumber CDATA #REQUIRED>
+<!ATTLIST putKey identifier CDATA #REQUIRED>
+<!ATTLIST putKey type CDATA #REQUIRED>
+<!ATTLIST putKey key CDATA #REQUIRED>
+<!ATTLIST putKey varName CDATA #IMPLIED>
+<!ATTLIST putKey replace CDATA #IMPLIED>
+
+<!ELEMENT oscPutKey (senc, smac, dek)>
+<!ATTLIST oscPutKey versionNumber CDATA #REQUIRED>
+<!ATTLIST oscPutKey security CDATA #IMPLIED>
+
+<!ELEMENT senc EMPTY>
+<!ATTLIST senc key CDATA #REQUIRED>
+<!ATTLIST senc varName CDATA #IMPLIED>
+
+<!ELEMENT smac EMPTY>
+<!ATTLIST smac key CDATA #REQUIRED>
+<!ATTLIST smac varName CDATA #IMPLIED>
+
+<!ELEMENT dek EMPTY>
+<!ATTLIST dek key CDATA #REQUIRED>
+<!ATTLIST dek varName CDATA #IMPLIED>
+
+<!ELEMENT RFM EMPTY>
+<!ATTLIST RFM tar CDATA #REQUIRED>
+<!ATTLIST RFM msl CDATA #REQUIRED>
+<!ATTLIST RFM bip CDATA #IMPLIED>
+<!ATTLIST RFM params CDATA #IMPLIED>
+
+<!ELEMENT cattpInstance (#PCDATA)>
+<!ATTLIST cattpInstance params CDATA #IMPLIED>
+
+
+<!ELEMENT SecurityDomains (SD*, oscPutKey?)>
+
+<!ELEMENT SD (sdInstance, putKey*)>
+
+<!ELEMENT sdInstance (#PCDATA)>
+<!ATTLIST sdInstance parentAID CDATA #REQUIRED>
+<!ATTLIST sdInstance CASD CDATA #IMPLIED>
+
+
+<!ELEMENT cardApplications (application+)>
+
+<!ELEMENT application (installForLoad?, installForInstall*, instance*, variable*, load?, ciphLfdbKey?)>
+<!ATTLIST application name CDATA #REQUIRED>
+<!ATTLIST application installType CDATA #REQUIRED>
+<!ATTLIST application hcode CDATA #IMPLIED>
+
+<!ELEMENT load (#PCDATA)>
+
+<!ELEMENT ciphLfdbKey (#PCDATA)>
+
+<!ELEMENT installForLoad (#PCDATA)>
+		
+<!ELEMENT installForInstall (#PCDATA)>
+<!ATTLIST installForInstall instanceNumber CDATA #REQUIRED>
+<!ATTLIST installForInstall type CDATA #REQUIRED>
+
+<!ELEMENT instance (instForExtradition?)>
+<!ATTLIST instance instanceNumber CDATA #REQUIRED>
+<!ATTLIST instance type CDATA #REQUIRED>
+<!ATTLIST instance installForInstall CDATA #REQUIRED>
+
+<!ELEMENT instForExtradition (secureChannelSettings?)>
+<!ATTLIST instForExtradition elf CDATA #IMPLIED>
+<!ATTLIST instForExtradition app CDATA #IMPLIED>
+
+<!ELEMENT secureChannelSettings (senc, smac, dek)>
+<!ATTLIST secureChannelSettings aid CDATA #REQUIRED>
+<!ATTLIST secureChannelSettings sw CDATA #REQUIRED>
+<!ATTLIST secureChannelSettings protocol CDATA #REQUIRED>
+<!ATTLIST secureChannelSettings mode CDATA #REQUIRED>
+<!ATTLIST secureChannelSettings version CDATA #REQUIRED>
+<!ATTLIST secureChannelSettings security CDATA #IMPLIED>
+
+
+<!ELEMENT commands (cmd+)>
+
+<!ELEMENT cmd (variable*)>
+<!ATTLIST cmd code CDATA #REQUIRED>
+<!ATTLIST cmd order CDATA #REQUIRED>
+<!ATTLIST cmd application CDATA #IMPLIED>
+
+
+<!ELEMENT cardVariables (cardVariable+)>
+
+<!ELEMENT cardVariable (#PCDATA)>
+<!ATTLIST cardVariable name CDATA #REQUIRED>
+<!ATTLIST cardVariable dpeList CDATA #IMPLIED>
+
+
+<!ELEMENT Settings EMPTY>
+<!ATTLIST Settings customer CDATA #IMPLIED>
+<!ATTLIST Settings product CDATA #IMPLIED>
+<!ATTLIST Settings execute CDATA #REQUIRED>
+<!ATTLIST Settings production CDATA #REQUIRED>
+<!ATTLIST Settings readDataArea CDATA #IMPLIED>

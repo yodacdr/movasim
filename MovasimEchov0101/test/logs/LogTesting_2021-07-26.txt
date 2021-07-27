@@ -1,0 +1,352 @@
+Terminal Profile (len=14)
+      Profile download: Yes 
+      SMS-PP data download: Yes 
+      Cell Broadcast data download: Yes 
+      Menu selection: Yes 
+      SMS-PP data download: Yes 
+      Timer Expiration: Yes 
+      USSD string data object support in Call Control by USIM: Yes 
+      Call Control by NAA: Yes 
+      Command Result: Yes 
+      Call Control by NAA: Yes 
+      Call Control by NAA: Yes 
+      MO short Message control support: Yes 
+      Call Control by NAA: Yes 
+      UCS2 Entry supported: Yes 
+      UCS2 Display supported: Yes 
+      Display Text: Yes 
+      Proactive UICC: DISPLAY TEXT: Yes 
+      Proactive UICC: GET INKEY: Yes 
+      Proactive UICC: GET INPUT: Yes 
+      Proactive UICC: MORE TIME: Yes 
+      Proactive UICC: PLAY TONE: Yes 
+      Proactive UICC: POLLING INTERVAL = Yes 
+      Proactive UICC: POLLING OFF: Yes 
+      Proactive UICC: REFRESH: Yes 
+      Proactive UICC: SELECT ITEM: Yes 
+      Proactive UICC: SEND SHORT MESSAGE with 3GPP-SMS-TPDU: Yes 
+      Proactive UICC: Send SS: Yes 
+      Proactive UICC: Send USSD: Yes 
+      Proactive UICC: SET UP CALL: Yes 
+      Proactive UICC: SET UP MENU: Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (MCC MNC LAC CellID & IMEI): Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (NMR): Yes 
+      Event: SET UP EVENT LIST: Yes 
+      Event: MT Call: Yes 
+      Event: Call Connected: Yes 
+      Event: Call Disconnected: Yes 
+      Event: Location Status: Yes 
+      Event: User Activity: Yes 
+      Event: Idle Screen Available: Yes 
+      Event: Card reader status: Yes 
+      Event: Language selection: Yes 
+      Event: Browser termination: Yes 
+      Event: Data available: Yes 
+      Event: Channel status: Yes 
+      Event: Access Technology Change: Yes 
+      Event: Display parameters changed: Yes 
+      Event: Local Connection: Yes 
+      Event: Network Search Mode Change: Yes 
+      Proactive UICC: POWER ON CARD: Yes 
+      Proactive UICC: POWER OFF CARD: Yes 
+      Proactive UICC: PERFORM CARD APDU: Yes 
+      Proactive UICC: GET READER STATUS (status): Yes 
+      Proactive UICC: GET READER STATUS (identifier): Yes 
+      Proactive UICC: TIMER MANAGEMENT (Start Stop): Yes 
+      Proactive UICC: TIMER MANAGEMENT (get current value): Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (date time and time zone): Yes 
+      GET INKEY: Yes 
+      SET UP IDLE MODE TEXT: Yes 
+      RUN AT COMMAND: Yes 
+      SETUP CALL: Yes 
+      Call Control by NAA: Yes 
+      SEND DTMF: Yes 
+       Yes 
+      Proactive UICC: Provide Local Information - NMR: Yes 
+      Proactive UICC: Provide Local Information (language): Yes 
+      Proactive UICC: Provide Local Information (Timming): Yes 
+      Proactive UICC: LANGUAGE NOTIFICATION: Yes 
+      Proactive UICC: LAUNCH BROWSER: Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (Access Technology): Yes 
+      Soft key support for SELECT ITEM: Yes 
+      Soft key support for SET UP MENU: Yes 
+      Maximum Number Of Soft Keys Available: 255 
+      Proactive UICC: OPEN CHANNEL: Yes 
+      Proactive UICC: CLOSE CHANNEL: Yes 
+      Proactive UICC: RECEIVE DATA: Yes 
+      Proactive UICC: SEND DATA: Yes 
+      Proactive UICC: GET CHANNEL STATUS: Yes 
+      Proactive UICC: SERVICE SEARCH: Yes 
+      Proactive UICC: GET SERVICE INFORMATION: Yes 
+      Proactive UICC: DECLARE SERVICE: Yes 
+      CSD: Yes 
+      GPRS: Yes 
+      Bluetooth: Yes 
+      IrDA: Yes 
+      RS232: Yes 
+      Number of channels supported by terminal: 224 
+      Number Of Characters Supported Down The ME Display: 31 
+      No display capability: Yes 
+      No keypad available: Yes 
+      Screen Sizing Parameters supported: Yes 
+      Number Of Characters Supported Accross the ME Display: 127 
+       Yes 
+      Variable Sized Fonts Supported: 
+      Display Can Be Resized: Yes 
+      Text Wrapping Supported: Yes 
+      Text Scrolling Supported: Yes 
+      Text Attributes Supported: Yes 
+      Width Reduction When In A Menu: 7 
+      TCP, UICC in client mode, remote connection: Yes 
+      UDP, UICC in client mode, remote connection: Yes 
+      TCP, UICC in server mode: Yes 
+      UDP, UICC in server mode: Yes 
+      UDP, UICC in client mode, local connection: Yes 
+       Yes 
+      E-UTRAN: Yes 
+      HSDPA: Yes 
+      Proactive UICC: DISPLAY TEXT (Variable Time out): Yes 
+      Proactive UICC: GET INKEY (help is supported while waiting for immediate response or variable timeout) Yes 
+      USB: Yes 
+      Proactive UICC: GET INKEY (Variable Timeout): Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (ESN): Yes 
+      Call control on GPRS: Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (IMEISV): Yes 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (Search Mode change): Yes 
+      Reserved by TIA/EIA-136: 15 
+      Reserved by TIA/EIA/IS-820: 255 
+      WML: No 
+      XHTML No 
+      HTML: No 
+      CHTML: No 
+      Support of UTRAN PS with extended parameters: No 
+      Proactive UICC: PROVIDE LOCAL INFORMATION(battery state) No 
+      Proactive UICC: PLAY TONE (Melody tones and Themed tones supported): No 
+      Multi-media Calls in SET UP CALL (if class h supported): No 
+      Toolkit-initiated GBA: No 
+      Proactive UICC: RETRIEVE MULTIMEDIA MESSAGE: No 
+      Proactive UICC: SUBMIT MULTIMEDIA MESSAGE: No 
+      Proactive UICC: DISPLAY MULTIMEDIA MESSAGE: No 
+      Proactive UICC: SET FRAMES: No 
+      Proactive UICC: GET FRAMES STATUS No 
+      MMS notification download: No 
+      Alpha Identifier in REFRESH command supported by terminal: No 
+      Geographical Location Reporting: No 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (MEID): No 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (NMR(UTRAN)): No 
+      USSD Data download and application mode: No 
+      Maximum number of frames supported (including frames created in existing frames): 0 
+      Event: Browsing status: No 
+      Event: MMS Transfer status No 
+      Event: Frame Parameters changed: No 
+      Event: I-WLAN Access status: No 
+      Event Network Rejection: No 
+      Event: HCI connectivity event: No 
+      E-UTRAN support in Event Network Rejection: No 
+      Multiple access technologies supported in Event Access Technology Change and PROVIDE LOCAL INFORMATION: No 
+      Alignment left supported by Terminal: No 
+      Alignment centre supported by Terminal No 
+      Alignment right supported by Terminal: No 
+      Font size normal supported by Terminal: No 
+      Font size large supported by Terminal: No 
+      Font size small supported by Terminal: No 
+      Style normal supported by Terminal: No 
+      Style bold supported by Terminal No 
+      Style italic supported by Terminal: No 
+      Style underlined supported by Terminal: No 
+      Style strikethrough supported by Terminal: No 
+      Style text foreground colour supported by Terminal: No 
+      Style text background colour supported by Terminal: No 
+      I-WLAN bearer support: No 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (WSID of the current I-WLAN connection): No 
+      TERMINAL APPLICATIONS: No 
+      Steering of Roaming REFRESH support: No 
+      Proactive UICC: ACTIVATE: No 
+      Proactive UICC: GEOGRAPHICAL LOCATION REQUEST: No 
+      Proactive UICC: PROVIDE LOCAL INFORMATION (Broadcast Network Information): No 
+      Steering of Roaming for I-WLAN REFRESH support: No 
+      Proactive UICC: Contactless State Changed (if class r is supported) No 
+      Support of CSG cell discovery No 
+      Confirmation parameters supported for OPEN CHANNEL in Terminal Server Mode (if classes e and k are supported) No 
+      Communication Control for IMS No 
+      Support for Incoming IMS Data No 
+      Support for IMS Registration No 
+      Profile Container No 
+      SESSION CONTROL No 
+      Support of IMS as a bearer No 
+      Support of PROVIDE LOCATION Information No 
+      Support of PROVIDE LOCATION Information No 
+      OPEN CHANNEL in Terminal Server Mode No 
+      Security for Profile No 
+      CAT service No 
+      CAT service No 
+      CAT service No 
+      Support of DNS server address No 
+      Support of Network Access Name No 
+      Poll Interval Negotiation No 
+      ProSe usage information reporting No 
+      ProSe usage information reporting No 
+      ProSe usage information reporting No 
+      ProSe usage information reporting No 
+      ProSe usage information reporting No 
+
+Fetch
+  TLV Tag: D0 Proactive SIM Command (len=0D)
+    TLV Tag: 81 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Set Up Event List 05
+      Command Qualifier: 00
+    TLV Tag: 82 Devices Identities (len=02)
+      Source Device: SIM 81
+      Destination Device: ME 82
+    TLV Tag: 99 Event List (len=02)
+      Event: Data Available 09
+      Event: Channel Status 0A
+
+Terminal Response (len=0C)
+    TLV Tag: 01 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Set Up Event List 05
+      Command Qualifier: 00
+    TLV Tag: 02 Devices Identities (len=02)
+      Source Device: ME 82
+      Destination Device: SIM 81
+    TLV Tag: 03 Result (len=01)
+      Result: Command Performed Successfully 00
+
+Fetch
+  TLV Tag: D0 Proactive SIM Command (len=0D)
+    TLV Tag: 81 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Poll Interval 03
+      Command Qualifier: 00
+    TLV Tag: 82 Devices Identities (len=02)
+      Source Device: SIM 81
+      Destination Device: ME 82
+    TLV Tag: 84 Duration (len=02)
+      Time Unit: Seconds 01
+      Time Interval: 30 units 1E
+
+Terminal Response (len=10)
+    TLV Tag: 01 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Poll Interval 03
+      Command Qualifier: 00
+    TLV Tag: 02 Devices Identities (len=02)
+      Source Device: ME 82
+      Destination Device: SIM 81
+    TLV Tag: 03 Result (len=01)
+      Result: Command Performed Successfully 00
+    TLV Tag: 84 Duration (len=02)
+      Time Unit: Seconds 01
+      Time Interval: 30 units 1E
+
+Status
+
+Status
+
+Envelope
+  TLV Tag: D1 SMS-PP (len=3A)
+    TLV Tag: 02 Devices Identities (len=02)
+      Source Device: Network 83
+      Destination Device: SIM 81
+    TLV Tag: 06 Address Tag (len=06)
+      TON : 81
+      NPI : ISDN/telephony numbering plan 81
+      Dialling Number: 1234567890 2143658709
+    TLV Tag: 0B SMS TPDU Tag (len=2C)
+
+Fetch
+  TLV Tag: D0 Proactive SIM Command (len=31)
+    TLV Tag: 81 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Send Short Message 13
+      Command Qualifier: 00
+      SMS Packing Required: No. 
+    TLV Tag: 82 Devices Identities (len=02)
+      Source Device: SIM 81
+      Destination Device: Network 83
+    TLV Tag: 05 Alpha Identifier (len=00)
+    TLV Tag: 06 Address Tag (len=06)
+      TON : 81
+      NPI : ISDN/telephony numbering plan 81
+      Dialling Number: 1234567890 2143658709
+    TLV Tag: 8B SMS TPDU Tag (len=1C)
+      TP-MTI: SMS SUBMIT 41
+      TP-RD / TP-MSS: SMS are not waiting for the MS in this SC 41
+      TP-VPF: TP VP field not present 41
+      TP-RP: Yes 41
+      TP-UDHI: Yes 41
+      TP-SRR / TP-SRI: No 41
+      TP-Message Reference: 00
+      TP-DA Length: 0A
+      Destination: 1234567890 812143658709
+      TP-DA TON/NPI: 81
+      TP-Destination Address: 1234567890 2143658709
+      TP-Protocol Identifier: 00
+      TP-Data Coding Scheme: F6
+      TP-User Data length: 10
+      TP-User Data: $q@@Ø SMS@@@@"@@ 027100000B0A534D5300000000220000
+
+Terminal Response (len=0C)
+    TLV Tag: 01 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Send Short Message 13
+      Command Qualifier: 00
+      SMS Packing Required: No. 
+    TLV Tag: 02 Devices Identities (len=02)
+      Source Device: ME 82
+      Destination Device: SIM 81
+    TLV Tag: 03 Result (len=01)
+      Result: Command Performed Successfully 00
+
+Status
+
+Status
+
+Status
+
+Status
+
+Fetch
+  TLV Tag: D0 Proactive SIM Command (len=2C)
+    TLV Tag: 81 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Send Short Message 13
+      Command Qualifier: 01
+      SMS Packing Required: Yes. 
+    TLV Tag: 82 Devices Identities (len=02)
+      Source Device: SIM 81
+      Destination Device: Network 83
+    TLV Tag: 05 Alpha Identifier (len=0B)
+      Identifier: Sending ... 53656E64696E67202E2E2E
+    TLV Tag: 0B SMS TPDU Tag (len=14)
+      TP-MTI: 11
+      TP-RD / TP-MSS: SMS are waiting for the MS in this SC 11
+      TP-VPF: TP VP field present - relative format 11
+      TP-RP: No 11
+      TP-UDHI: No 11
+      TP-SRR / TP-SRI: Yes 11
+      TP-Message Reference: FF
+      TP-DA Length: 0A
+      Destination: 1234567890 812143658709
+      TP-DA TON/NPI: 81
+      TP-Destination Address: 1234567890 2143658709
+      TP-Protocol Identifier: 00
+      TP-Data Coding Scheme: 00
+      TP Validity Period: 17 
+      TP-User Data length: 07
+      TP-User Data: hellook 68656C6C6F6F6B
+
+Terminal Response (len=0C)
+    TLV Tag: 01 Command Details Tag (len=03)
+      Command Number: 01
+      Type of Command: Send Short Message 13
+      Command Qualifier: 00
+      SMS Packing Required: No. 
+    TLV Tag: 02 Devices Identities (len=02)
+      Source Device: ME 82
+      Destination Device: SIM 81
+    TLV Tag: 03 Result (len=01)
+      Result: Command Performed Successfully 00
+

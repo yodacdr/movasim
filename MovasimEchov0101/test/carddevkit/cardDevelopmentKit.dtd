@@ -1,0 +1,165 @@
+<!ELEMENT Settings (RemoteSecurity, GlobalPlatformSecurity, AdminSecurity?)>
+<!ATTLIST Settings applicationVersion CDATA #REQUIRED>
+
+
+<!ELEMENT RemoteSecurity (spiSettings, counter, tar, keys, advancedSettings, remoteConnexion?)>
+<!ATTLIST RemoteSecurity format (compact|expandedDefinite|expandedIndefinite) "compact">
+<!ATTLIST RemoteSecurity scp02overScp80 (false|true) "false">
+
+<!ELEMENT spiSettings EMPTY>
+<!ATTLIST spiSettings spi1 CDATA #REQUIRED>
+<!ATTLIST spiSettings spi2 CDATA #REQUIRED>
+<!ATTLIST spiSettings kic CDATA #REQUIRED>
+<!ATTLIST spiSettings kid CDATA #REQUIRED>
+
+<!ELEMENT counter (#PCDATA)>
+
+<!ELEMENT tar (#PCDATA)>
+
+<!ELEMENT keys (kic?, kid?, kik?, keysFile)>
+
+<!ELEMENT kic (#PCDATA)>
+
+<!ELEMENT kid (#PCDATA)>
+
+<!ELEMENT kik (#PCDATA)>
+<!ATTLIST kik type (DES|AES) "DES">
+
+<!ELEMENT keysFile (#PCDATA)>
+
+
+<!ELEMENT advancedSettings (tpOa, tpPid, tpDcs, tpScts, tsSca)>
+
+<!ELEMENT tpOa (#PCDATA)>
+<!ATTLIST tpOa ton CDATA #REQUIRED>
+
+<!ELEMENT tpPid (#PCDATA)>
+
+<!ELEMENT tpDcs (#PCDATA)>
+
+<!ELEMENT tpScts (#PCDATA)>
+
+<!ELEMENT tsSca (#PCDATA)>
+<!ATTLIST tsSca ton CDATA #REQUIRED>
+
+
+<!ELEMENT remoteConnexion (phone, serverIp, (cattpSettings | httpsSettings)?)>
+<!ATTLIST remoteConnexion type (SMS|CATTP|HTTPS|APPLET) "SMS">
+
+<!ELEMENT phone (#PCDATA)>
+<!ATTLIST phone ton CDATA #REQUIRED>
+
+<!ELEMENT serverIp (#PCDATA)>
+
+
+<!ELEMENT cattpSettings (bufferSize, bearerDescription, networkAccessName, login, password, otherParameters, cattpBufferSize, cattpId)>
+
+<!ELEMENT bufferSize (#PCDATA)>
+
+<!ELEMENT bearerDescription (bearerType, bearerParameters)>
+
+<!ELEMENT bearerType (#PCDATA)>
+
+<!ELEMENT bearerParameters (#PCDATA)>
+
+<!ELEMENT networkAccessName (#PCDATA)>
+
+<!ELEMENT login (#PCDATA)>
+<!ATTLIST login dcs (00|04|08) "04">
+
+<!ELEMENT password (#PCDATA)>
+<!ATTLIST password dcs (00|04|08) "04">
+
+<!ELEMENT otherParameters (#PCDATA)>
+
+<!ELEMENT cattpBufferSize (#PCDATA)>
+
+<!ELEMENT cattpId (#PCDATA)>
+
+
+<!ELEMENT httpsSettings (communicationSettings, connexionParameters, securityParameters, retryPolicyParameters, httpPostParameters)>
+
+<!ELEMENT communicationSettings (aid, pskTls, pskDek, cipherSuite, chunkSize?)>
+<!ATTLIST communicationSettings dnsResolver (false|true) "false">
+
+<!ELEMENT aid (#PCDATA)>
+
+<!ELEMENT pskTls (#PCDATA)>
+
+<!ELEMENT pskDek (#PCDATA)>
+<!ATTLIST pskDek type (DES|AES) "DES">
+
+<!ELEMENT cipherSuite (#PCDATA)>
+
+<!ELEMENT chunkSize (#PCDATA)>
+
+
+<!ELEMENT connexionParameters (networkAccessName, login, password, bearerDescription, bufferSize, otherParameters)>
+
+
+<!ELEMENT securityParameters (pskId, kvn, keyId)>
+
+<!ELEMENT pskId (#PCDATA)>
+
+<!ELEMENT kvn (#PCDATA)>
+
+<!ELEMENT keyId (#PCDATA)>
+
+
+<!ELEMENT retryPolicyParameters (retryCounter, retryWaitingDelay, retryReportFailure)>
+
+<!ELEMENT retryCounter (#PCDATA)>
+
+<!ELEMENT retryWaitingDelay (hours, minutes, seconds)>
+
+<!ELEMENT hours (#PCDATA)>
+
+<!ELEMENT minutes (#PCDATA)>
+
+<!ELEMENT seconds (#PCDATA)>
+
+<!ELEMENT retryReportFailure (dataDestinationAddress, serviceCentreAddress, errorString)>
+
+<!ELEMENT dataDestinationAddress (#PCDATA)>
+<!ATTLIST dataDestinationAddress tonNpi CDATA #REQUIRED>
+
+<!ELEMENT serviceCentreAddress (#PCDATA)>
+<!ATTLIST serviceCentreAddress tonNpi CDATA #REQUIRED>
+
+<!ELEMENT errorString (#PCDATA)>
+
+
+<!ELEMENT httpPostParameters (adminHost, agentId, adminUri)>
+
+<!ELEMENT adminHost (#PCDATA)>
+
+<!ELEMENT agentId (#PCDATA)>
+
+<!ELEMENT adminUri (#PCDATA)>
+
+
+<!ELEMENT GlobalPlatformSecurity (aid, secureChannelSettings, gpKeys, gpVersionProtocol?)>
+
+<!ELEMENT secureChannelSettings (kvn, keyId)>
+<!ATTLIST secureChannelSettings secLevel (00|01|03|11|13|33) "00">
+
+<!ELEMENT gpKeys (enc?, mac?, dek?, keysFile)>
+
+<!ELEMENT enc (#PCDATA)>
+
+<!ELEMENT mac (#PCDATA)>
+
+<!ELEMENT dek (#PCDATA)>
+
+<!ELEMENT gpVersionProtocol (protocol, mode)>
+<!ATTLIST gpVersionProtocol gpVersion (211|22) "211">
+
+<!ELEMENT protocol (#PCDATA)>
+
+<!ELEMENT mode (#PCDATA)>
+
+
+<!ELEMENT AdminSecurity (adm1, aid)>
+<!ATTLIST AdminSecurity gpVersion (211|22) "211">
+
+<!ELEMENT adm1 (#PCDATA)>

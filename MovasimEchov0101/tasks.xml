@@ -1,0 +1,55 @@
+<project name="MovasimEchov0101" default="build" basedir=".">
+	<description>
+   Generic JCBuildTool Launcher
+   </description>
+
+	<target name="Init">
+		<!-- Read properties for the project -->
+		<property file="${PropertyFileName}" />
+	</target>
+	<!-- All output files generation -->
+	<target name="build" depends="Init" description="Compile and link">
+		<property name="debug" value="off" />
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml">
+		</ant>
+	</target>
+	<target name="compile" depends="Init" description="Compile only">
+		<property name="debug" value="off" />
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="ClassFile">
+		</ant>
+	</target>
+	<target name="build_debug" depends="Init" description="Compile and link in debug mode">
+		<property name="debug" value="true" />
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml">
+		</ant>
+	</target>
+	<target name="compile_debug" depends="Init" description="Compile only, in debug mode">
+		<property name="debug" value="true" />
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="ClassFile">
+		</ant>
+	</target>
+	<target name="install_gemshell" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="install_gemshell" description="Installs the applet using gemshell">
+		</ant>
+	</target>
+	<target name="AppletLoader" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="AppletLoader" description="Installs the applet using AppletLoader">
+		</ant>
+	</target>
+	<target name="bin_ref" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="bin_ref" description="Installs the applet using AppletLoader">
+		</ant>
+	</target>
+	<target name="clean" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="clean" description="Cleans the entire generated files">
+		</ant>
+	</target>
+	<target name="javadoc" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="javadoc" description="Generates the javadoc">
+		</ant>
+	</target>
+	<target name="info" depends="Init">
+		<ant dir="." antfile="${jcbuildTool.path}\build.xml" target="info" description="Display project information ">
+		</ant>
+	</target>
+</project>

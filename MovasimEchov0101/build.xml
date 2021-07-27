@@ -1,0 +1,25 @@
+<project name="MovasimEchov0101" default="buildAll" basedir=".">
+	<target name="buildAll">
+		<ant antfile="tasks.xml" target="build">
+			<property name="PropertyFileName" value="applet.properties" />
+		</ant>
+		<ant antfile="tasks.xml" target="bin_ref">
+			<property name="PropertyFileName" value="applet.properties" />
+		</ant>
+	</target>
+	<target name="build">
+		<ant antfile="tasks.xml" target="build">
+			<property name="PropertyFileName" value="applet.properties" />
+		</ant>
+	</target>
+	<target name="bin_ref">
+		<ant antfile="tasks.xml" target="bin_ref">
+			<property name="PropertyFileName" value="applet.properties" />
+		</ant>
+	</target>
+	<target name="javadoc">
+		<ant antfile="tasks.xml" target="javadoc">
+			<property name="PropertyFileName" value="applet.properties" />
+		</ant>
+	</target>
+</project>

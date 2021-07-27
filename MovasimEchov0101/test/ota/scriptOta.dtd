@@ -1,0 +1,91 @@
+<!ELEMENT Session (settings, smsPp?, cattp?, cellBroadcast?, https?, remote?, command*)>
+
+
+<!ELEMENT settings EMPTY>
+<!ATTLIST settings commandType CDATA #REQUIRED>
+<!ATTLIST settings tar CDATA #REQUIRED>
+<!ATTLIST settings counter CDATA #REQUIRED>
+<!ATTLIST settings kicKey CDATA #REQUIRED>
+<!ATTLIST settings kidKey CDATA #REQUIRED>
+<!ATTLIST settings spi CDATA #REQUIRED>
+<!ATTLIST settings expanded CDATA #REQUIRED>
+<!ATTLIST settings expandedIndefinite CDATA #IMPLIED>
+
+
+<!ELEMENT smsPp EMPTY>
+<!ATTLIST smsPp udhi CDATA #REQUIRED>
+<!ATTLIST smsPp rp CDATA #REQUIRED>
+<!ATTLIST smsPp sri CDATA #REQUIRED>
+<!ATTLIST smsPp scts CDATA #REQUIRED>
+<!ATTLIST smsPp oaToa CDATA #REQUIRED>
+<!ATTLIST smsPp oa CDATA #REQUIRED>
+<!ATTLIST smsPp pid CDATA #REQUIRED>
+<!ATTLIST smsPp dcs CDATA #REQUIRED>
+<!ATTLIST smsPp scaToa CDATA #REQUIRED>
+<!ATTLIST smsPp sca CDATA #REQUIRED>
+
+
+<!ELEMENT cattp EMPTY>
+<!ATTLIST cattp port CDATA #REQUIRED>
+<!ATTLIST cattp buffSize CDATA #REQUIRED>
+<!ATTLIST cattp meBuffSize CDATA #REQUIRED>
+<!ATTLIST cattp id CDATA #REQUIRED>
+<!ATTLIST cattp logLevel CDATA #REQUIRED>
+<!ATTLIST cattp netName CDATA #IMPLIED>
+<!ATTLIST cattp userDcs CDATA #IMPLIED>
+<!ATTLIST cattp user CDATA #IMPLIED>
+<!ATTLIST cattp pwdDcs CDATA #IMPLIED>
+<!ATTLIST cattp pwd CDATA #IMPLIED>
+<!ATTLIST cattp addParams CDATA #IMPLIED>
+<!ATTLIST cattp bearerType CDATA #IMPLIED>
+<!ATTLIST cattp bearerParams CDATA #IMPLIED>
+
+
+<!ELEMENT cellBroadcast EMPTY>
+<!ATTLIST cellBroadcast serialNum CDATA #REQUIRED>
+<!ATTLIST cellBroadcast messageId CDATA #REQUIRED>
+<!ATTLIST cellBroadcast dcs CDATA #REQUIRED>
+
+
+<!ELEMENT remote EMPTY>
+<!ATTLIST remote type CDATA #REQUIRED>
+<!ATTLIST remote phone CDATA #REQUIRED>
+<!ATTLIST remote serverIp CDATA #REQUIRED>
+<!ATTLIST remote tonNpi CDATA #IMPLIED>
+
+
+<!ELEMENT https EMPTY>
+<!ATTLIST https netName CDATA #IMPLIED>
+<!ATTLIST https userDcs CDATA #IMPLIED>
+<!ATTLIST https user CDATA #IMPLIED>
+<!ATTLIST https pwdDcs CDATA #IMPLIED>
+<!ATTLIST https pwd CDATA #IMPLIED>
+<!ATTLIST https addParams CDATA #IMPLIED>
+<!ATTLIST https bearerType CDATA #IMPLIED>
+<!ATTLIST https bearerParams CDATA #IMPLIED>
+<!ATTLIST https bufferSize CDATA #IMPLIED>
+<!ATTLIST https ram CDATA #REQUIRED>
+<!ATTLIST https rfmAid CDATA #IMPLIED>
+<!ATTLIST https pskId CDATA #IMPLIED>
+<!ATTLIST https keyVersion CDATA #IMPLIED>
+<!ATTLIST https keyIdentifier CDATA #IMPLIED>
+<!ATTLIST https keyValue CDATA #REQUIRED>
+<!ATTLIST https cipherSuite CDATA #REQUIRED>
+<!ATTLIST https retryCounter CDATA #IMPLIED>
+<!ATTLIST https delayHours CDATA #IMPLIED>
+<!ATTLIST https delayMinutes CDATA #IMPLIED>
+<!ATTLIST https delaySeconds CDATA #IMPLIED>
+<!ATTLIST https reportDataDestinationToa CDATA #IMPLIED>
+<!ATTLIST https reportDataDestinationAddress CDATA #IMPLIED>
+<!ATTLIST https reportServiceCentreToa CDATA #IMPLIED>
+<!ATTLIST https reportServiceCentreAddress CDATA #IMPLIED>
+<!ATTLIST https reportError CDATA #IMPLIED>
+<!ATTLIST https adminHost CDATA #IMPLIED>
+<!ATTLIST https agentId CDATA #IMPLIED>
+<!ATTLIST https adminUri CDATA #IMPLIED>
+<!ATTLIST https chunked CDATA #IMPLIED>
+<!ATTLIST https chunkSize CDATA #IMPLIED>
+<!ATTLIST https dnsResolver CDATA #IMPLIED>
+
+
+<!ELEMENT command (#PCDATA)>
