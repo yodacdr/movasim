@@ -79,6 +79,14 @@ It is needed full access to AID USIM, for example: A0000000871002FF54FF0789312E3
 It is saved in the file 3F00\4F31 the log of what's going on.
 
 
+UICC System Specific Parameters, for IPP:
+8008FF0000000000000081180001000010A0000000871002FF56F00189000001FF010000
+UICC Toolkit Application specific parameters:
+FF00000000000000
+UICC AccessApplication specific parameters:
+0001000010A0000000871002FF56F00189000001FF010000
+
+
 ---------------------------------------
 PARAMETERS: 
 ---------------------------------------

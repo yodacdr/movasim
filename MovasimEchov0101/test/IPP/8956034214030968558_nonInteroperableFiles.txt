@@ -1,0 +1,18 @@
+The following files are non-interoperable and have not been saved to the IPP:
+
+3F00\2FFF (ADM)
+3F00\2FFE (PIN)
+3F00\4603 (DIRcontrol)
+3F00\4604 (PIN_REF)
+3F00\7F4D (DD)
+3F00\7F5D (Amendment B)
+3F00\7FF1\4605 (PIN2_REF)
+3F00\7FF1\6F1A (Ki)
+3F00\7FF1\6F1C (OPC)
+3F00\7FF1\6F1E (SEQ_NUMBER_LIST)
+3F00\7F71\4605 (PIN2_REF)
+3F00\7F71\6F1A (Ki)
+3F00\7F71\6F1C (OPC)
+3F00\7F71\6F1E (SEQ_NUMBER_LIST)
+
+The children of any non-interoperable DFs listed above will not be saved to the IPP either.
